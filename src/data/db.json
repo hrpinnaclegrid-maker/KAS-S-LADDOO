@@ -1,0 +1,771 @@
+{
+  "products": [
+    {
+      "id": "kas-dryfruit-almond-date",
+      "name": "Royal Nut Delight — Royal Date, Almond & Pistachio Laddu",
+      "hindiName": "बादाम और खजूर लड्डू",
+      "category": "dry-fruits",
+      "categoryLabel": "Dry Fruits Collection",
+      "tagline": "Natural Sustained Energy • No Refined Sugar",
+      "description": "Handcrafted with premium Mamra California almonds, Arabian dates, cashew bits, and pure A2 cow ghee. Naturally sweetened with soft dates without a single grain of processed sugar.",
+      "ingredients": [
+        "California & Mamra Almonds (40%)",
+        "Soft Arabian Dates (35%)",
+        "Whole Cashew Kernels (15%)",
+        "Pure Desi Cow Ghee (8%)",
+        "Green Cardamom & Nutmeg (2%)"
+      ],
+      "keyBenefits": [
+        "Natural energy boost for busy workdays and active lifestyles",
+        "High in monounsaturated healthy fats and Vitamin E",
+        "Dietary fiber supporting smooth digestion and satiety",
+        "Heart-conscious and kid-friendly natural sweetness"
+      ],
+      "targetAudience": [
+        "young-adults",
+        "men",
+        "children",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 158,
+        "proteinG": 4.8,
+        "carbsG": 16.2,
+        "healthyFatsG": 8.6,
+        "dietaryFiberG": 3.1,
+        "sugarG": 10.5,
+        "sweetenerType": "Natural Arabian Dates (Zero Refined Sugar)"
+      },
+      "price": 520,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Zero Refined Sugar",
+        "High Vitamin E",
+        "Bestseller"
+      ],
+      "inStock": true,
+      "featured": true,
+      "chakraTheme": {
+        "chakraName": "Solar Plexus (Manipura)",
+        "chakraMeaning": "Vitality, Inner Willpower & Digestive Fire",
+        "accentColor": "#F59E0B"
+      },
+      "storageInstructions": "Store in a cool, airtight glass container. Stays fresh for up to 30 days at room temperature.",
+      "allergenWarning": "Contains tree nuts (almonds, cashews) and dairy (desi ghee).",
+      "image": "/products/kas-dryfruit-almond-date.jpg"
+    },
+    {
+      "id": "kas-dryfruit-pista-walnut",
+      "name": "Kashmiri Walnut & Pistachio Brain Vitality Laddu",
+      "hindiName": "अखरोट और पिस्ता मेधा लड्डू",
+      "category": "dry-fruits",
+      "categoryLabel": "Dry Fruits Collection",
+      "tagline": "Omega-3 Rich • Cognitive Nourishment & Mindful Snacking",
+      "description": "Thoughtfully balanced with brain-shaped Kashmiri walnuts, Iranian green pistachios, melon seeds, and fragrant wild cardamom bound with raw black figs and unpasteurized raw honey.",
+      "ingredients": [
+        "Kashmiri Snow Walnut Halves (35%)",
+        "Green Pistachio Kernels (25%)",
+        "Sun-dried Black Fig Mash (25%)",
+        "Melon & Pumpkin Seeds (10%)",
+        "Desi Gir Cow Ghee & Saffron Strands (5%)"
+      ],
+      "keyBenefits": [
+        "Rich in plant-based Omega-3 ALA supporting cognitive wellness",
+        "Ideal midday brain fuel for studying students and desk professionals",
+        "Nutrient-dense minerals including magnesium, copper, and manganese",
+        "Mindful snacking for emotional balance and focus"
+      ],
+      "targetAudience": [
+        "young-adults",
+        "children",
+        "older-adults",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 165,
+        "proteinG": 5.2,
+        "carbsG": 14.1,
+        "healthyFatsG": 10.2,
+        "dietaryFiberG": 3.4,
+        "sugarG": 8.9,
+        "sweetenerType": "Sun-dried Black Figs & Wild Honey hint"
+      },
+      "price": 590,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Omega-3 Rich",
+        "Brain Food",
+        "Zero Preservatives"
+      ],
+      "inStock": true,
+      "featured": true,
+      "chakraTheme": {
+        "chakraName": "Third Eye (Ajna)",
+        "chakraMeaning": "Mental Clarity, Perception & Cognitive Harmony",
+        "accentColor": "#6366F1"
+      },
+      "storageInstructions": "Store away from direct sunlight. Refrigeration recommended in summer for extra crunch.",
+      "allergenWarning": "Contains walnuts and pistachios. May contain traces of other nuts.",
+      "image": "/products/kas-dryfruit-pista-walnut.jpg"
+    },
+    {
+      "id": "kas-dryfruit-cashew-anjeer",
+      "name": "Anjeer Harmony — Anjeer, Walnut & Almond Laddu",
+      "hindiName": "काजू और अंजीर अमृत लड्डू",
+      "category": "dry-fruits",
+      "categoryLabel": "Dry Fruits Collection",
+      "tagline": "Natural Iron & Calcium • Delicate Crunchy Fig Texture",
+      "description": "Rich Turkish sun-dried figs slow-simmered and blended with hand-broken roasted cashews and toasted sesame. A sensory delight with the distinctive crunch of real fig seeds.",
+      "ingredients": [
+        "Sun-ripened Dried Figs / Anjeer (45%)",
+        "Roasted W240 Cashew Nuts (35%)",
+        "Roasted Golden Sesame Seeds (10%)",
+        "Pure Desi Cow Ghee (8%)",
+        "Green Cardamom Powder (2%)"
+      ],
+      "keyBenefits": [
+        "Natural dietary fiber supporting healthy gut motility and digestive harmony",
+        "Provides natural plant-derived iron, calcium, and potassium",
+        "Excellent nourishing snack during pregnancy, postpartum, and mature adulthood",
+        "Naturally sweet with zero added sugar or syrups"
+      ],
+      "targetAudience": [
+        "women",
+        "older-adults",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 152,
+        "proteinG": 3.9,
+        "carbsG": 18.5,
+        "healthyFatsG": 7.6,
+        "dietaryFiberG": 4.2,
+        "sugarG": 11.2,
+        "sweetenerType": "100% Sun-Dried Fig Pulp (No Sugar Added)"
+      },
+      "price": 540,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Natural Iron",
+        "High Fiber",
+        "Zero Refined Sugar"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Sacral Chakra (Svadhisthana)",
+        "chakraMeaning": "Nourishment, Sensual Joy & Emotional Flow",
+        "accentColor": "#EA580C"
+      },
+      "storageInstructions": "Keep sealed in an airtight box. Best consumed within 3 weeks.",
+      "allergenWarning": "Contains cashews and sesame seeds.",
+      "image": "/products/kas-dryfruit-cashew-anjeer.jpg"
+    },
+    {
+      "id": "kas-millet-ragi-gond",
+      "name": "Sprouted Ragi & Babool Gond Strength Laddu",
+      "hindiName": "अंकुरित रागी और गोंद पुष्टि लड्डू",
+      "category": "millets",
+      "categoryLabel": "Millet & Grain Collection",
+      "tagline": "Calcium Powerhouse • Joint Support & Postnatal Vitality",
+      "description": "Sprouted finger millet (Ragi) slow-roasted in desi cow ghee with puffed babool gond (edible gum), almonds, melon seeds, and organic unrefined jaggery.",
+      "ingredients": [
+        "Sprouted Finger Millet / Ragi Flour (35%)",
+        "Puffed Edible Babool Gond (15%)",
+        "Crushed Almonds & Walnuts (20%)",
+        "Organic Kolhapuri Jaggery (18%)",
+        "Pure Desi Cow Ghee (10%)",
+        "Dry Ginger (Sonth) & Nutmeg (2%)"
+      ],
+      "keyBenefits": [
+        "Extremely rich in natural bioavailable calcium for bone and joint support",
+        "Edible gond provides traditional deep joint lubrication and body warmth",
+        "Traditional postpartum and lactation nourishment for new mothers",
+        "Low glycemic millet providing long-lasting metabolic energy"
+      ],
+      "targetAudience": [
+        "women",
+        "older-adults",
+        "children",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 148,
+        "proteinG": 3.7,
+        "carbsG": 21,
+        "healthyFatsG": 6.2,
+        "dietaryFiberG": 3.9,
+        "sugarG": 9.8,
+        "sweetenerType": "Organic Unrefined Jaggery (Gur)"
+      },
+      "price": 460,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "High Calcium",
+        "Millet Power",
+        "Joint Care"
+      ],
+      "inStock": true,
+      "featured": true,
+      "chakraTheme": {
+        "chakraName": "Root Chakra (Muladhara)",
+        "chakraMeaning": "Grounded Strength, Bone Stability & Deep Resilience",
+        "accentColor": "#DC2626"
+      },
+      "storageInstructions": "Keep in a cool dry pantry. Up to 45 days shelf life.",
+      "allergenWarning": "Contains tree nuts (almonds) and dairy (ghee).",
+      "image": "/products/kas-millet-ragi-gond.jpg"
+    },
+    {
+      "id": "kas-millet-bajra-til",
+      "name": "Winter Warmth Bajra & White Til Laddu",
+      "hindiName": "बाजरा और तिल स्निग्ध लड्डू",
+      "category": "millets",
+      "categoryLabel": "Millet & Grain Collection",
+      "tagline": "Traditional Warmth • Rich in Iron, Zinc & Healthy Fats",
+      "description": "Slow-toasted pearl millet (Bajra) combined with high-grade roasted white sesame seeds (Til), roasted peanuts, and dark sugarcane jaggery. A heartwarming heritage winter recipe.",
+      "ingredients": [
+        "Stone-ground Pearl Millet / Bajra (35%)",
+        "Roasted White Sesame Seeds (25%)",
+        "Hand-crushed Roasted Peanuts (15%)",
+        "Organic Sugarcane Jaggery (15%)",
+        "Pure Desi Cow Ghee (8%)",
+        "Black Pepper & Cardamom (2%)"
+      ],
+      "keyBenefits": [
+        "High natural zinc and iron content supporting immunity and hemoglobin",
+        "Sesame provides essential fatty acids and natural calcium",
+        "Provides thermogenic warmth and comfort during cool seasons or morning fatigue",
+        "Wholesome traditional snacking to replace processed biscuits"
+      ],
+      "targetAudience": [
+        "men",
+        "older-adults",
+        "young-adults"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 154,
+        "proteinG": 4.5,
+        "carbsG": 19.4,
+        "healthyFatsG": 7.2,
+        "dietaryFiberG": 3.6,
+        "sugarG": 8.5,
+        "sweetenerType": "Pure Organic Sugarcane Jaggery"
+      },
+      "price": 420,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Iron & Zinc Dense",
+        "Sesame Rich",
+        "Traditional Comfort"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Solar Plexus (Manipura)",
+        "chakraMeaning": "Metabolic Heat, Inner Drive & Stamina",
+        "accentColor": "#D97706"
+      },
+      "storageInstructions": "Store in a dry cool place. Keep lid tightly closed.",
+      "allergenWarning": "Contains peanuts and sesame seeds.",
+      "image": "/products/kas-millet-bajra-til.jpg"
+    },
+    {
+      "id": "kas-millet-jowar-cardamom",
+      "name": "Sorghum Jowar & Green Cardamom Balance Laddu",
+      "hindiName": "ज्वार और इलायची संतुलन लड्डू",
+      "category": "millets",
+      "categoryLabel": "Millet & Grain Collection",
+      "tagline": "Gluten-Free Millet • Easy Digestion & Light Refreshment",
+      "description": "Gentle roasted Sorghum (Jowar) flour, aromatic Idukki green cardamom, crushed almonds, and organic Khandsari raw sugar. Wonderfully light and easy on sensitive digestive systems.",
+      "ingredients": [
+        "Roasted Sorghum / Jowar Flour (40%)",
+        "Almond & Pistachio Flakes (20%)",
+        "Traditional Khandsari Raw Cane Sugar (20%)",
+        "Pure Desi Cow Ghee (18%)",
+        "Green Cardamom & Mace (2%)"
+      ],
+      "keyBenefits": [
+        "Light and gentle on the stomach; excellent for mindful afternoon snacking",
+        "Naturally gluten-free grain with complex carbohydrates",
+        "Cardamom aids digestion and imparts a peaceful culinary aroma",
+        "Appeals naturally to children transitioning to millet foods"
+      ],
+      "targetAudience": [
+        "children",
+        "women",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 142,
+        "proteinG": 3.4,
+        "carbsG": 19.8,
+        "healthyFatsG": 6,
+        "dietaryFiberG": 2.8,
+        "sugarG": 9,
+        "sweetenerType": "Raw Khandsari Sugar (Unbleached)"
+      },
+      "price": 440,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Gentle Digestion",
+        "Gluten-Free Grain",
+        "Child Favorite"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Heart Chakra (Anahata)",
+        "chakraMeaning": "Gentleness, Compassion & Light Harmony",
+        "accentColor": "#10B981"
+      },
+      "storageInstructions": "Store at room temperature in a dry container. Shelf life 30 days.",
+      "allergenWarning": "Contains almonds, pistachios, and dairy.",
+      "image": "/products/kas-millet-jowar-cardamom.jpg"
+    },
+    {
+      "id": "kas-specialty-seven-seed",
+      "name": "Seven-Seed Botanical Wellness Laddu",
+      "hindiName": "सप्त-बीज आरोग्य लड्डू",
+      "category": "specialty",
+      "categoryLabel": "Specialty Wellness Collection",
+      "tagline": "Superseed Medley • Zinc, Magnesium & Plant Micronutrients",
+      "description": "A doctor-formulated blend of 7 powerhouse seeds: Pumpkin, Sunflower, Flax, Chia, White Sesame, Black Sesame, and Watermelon seeds, gently bound with dates and cold-pressed coconut oil.",
+      "ingredients": [
+        "Pumpkin Seeds (15%)",
+        "Sunflower Seeds (15%)",
+        "Roasted Flax Seeds (15%)",
+        "Watermelon & Melon Seeds (15%)",
+        "Chia & Black/White Sesame Seeds (10%)",
+        "Black Date Pulp (22%)",
+        "Cold-Pressed Coconut Oil & Cow Ghee (8%)"
+      ],
+      "keyBenefits": [
+        "Comprehensive micronutrient spectrum: magnesium, zinc, selenium & folate",
+        "Plant lignans and healthy fatty acids supporting hormonal and cardiovascular balance",
+        "No grains or flours — purely whole seeds and dates",
+        "Crunchy, satisfying texture that curtails processed snack cravings"
+      ],
+      "targetAudience": [
+        "women",
+        "men",
+        "young-adults",
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 168,
+        "proteinG": 5.8,
+        "carbsG": 12.5,
+        "healthyFatsG": 11.2,
+        "dietaryFiberG": 4.8,
+        "sugarG": 7.4,
+        "sweetenerType": "Natural Date Pulp Only"
+      },
+      "price": 560,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "7 Power Seeds",
+        "Hormonal Balance",
+        "High Magnesium"
+      ],
+      "inStock": true,
+      "featured": true,
+      "chakraTheme": {
+        "chakraName": "Throat Chakra (Vishuddha)",
+        "chakraMeaning": "Authentic Expression, Clarity & Vital Flow",
+        "accentColor": "#0284C7"
+      },
+      "storageInstructions": "Store in a cool dry airtight tin. Keep refrigerated in high humidity.",
+      "allergenWarning": "Contains multiple seeds (flax, sesame, chia, pumpkin, sunflower). Free from peanuts.",
+      "image": "/products/kas-specialty-seven-seed.jpg"
+    },
+    {
+      "id": "kas-specialty-besan-methi",
+      "name": "Heritage Besan & Sprouted Methi Digestive Laddu",
+      "hindiName": "बेसन और अंकुरित मेथी पाचक लड्डू",
+      "category": "specialty",
+      "categoryLabel": "Specialty Wellness Collection",
+      "tagline": "Digestive Comfort • Gentle Herbals & Slow-Roasted Gram",
+      "description": "Coarsely milled Bengal gram flour slow-roasted in pure ghee with micro-quantities of debittered sprouted fenugreek, carom seeds (ajwain), and organic jaggery.",
+      "ingredients": [
+        "Coarse Roasted Bengal Gram / Besan (45%)",
+        "Debittered Sprouted Methi Powder (5%)",
+        "Pure Desi Cow Ghee (25%)",
+        "Organic Kolhapuri Jaggery (20%)",
+        "Carom Seeds (Ajwain) & Cardamom (5%)"
+      ],
+      "keyBenefits": [
+        "Fenugreek and carom provide traditional herbal comfort for digestion and metabolism",
+        "Supports stable glycemic response when consumed mindfully in moderation",
+        "Nourishing winter and postpartum staple passed down through generations",
+        "Melt-in-mouth roasted texture with gentle aromatic spices"
+      ],
+      "targetAudience": [
+        "older-adults",
+        "women",
+        "men"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (35g)",
+        "caloriesApprox": 156,
+        "proteinG": 4.2,
+        "carbsG": 18.2,
+        "healthyFatsG": 7.8,
+        "dietaryFiberG": 3.2,
+        "sugarG": 9.2,
+        "sweetenerType": "Kolhapuri Organic Jaggery"
+      },
+      "price": 440,
+      "weight": "400g (Box of 10-12 laddus)",
+      "badges": [
+        "Digestive Care",
+        "Ayurvedic Heritage",
+        "Handmade Ghee"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Solar Plexus (Manipura)",
+        "chakraMeaning": "Agni (Digestive Fire) & Wholesome Assimilation",
+        "accentColor": "#F59E0B"
+      },
+      "storageInstructions": "Store in an airtight glass or steel jar. Shelf life 40 days.",
+      "allergenWarning": "Contains legumes (besan) and dairy (desi ghee).",
+      "image": "/products/kas-specialty-besan-methi.jpg"
+    },
+    {
+      "id": "kas-gift-chakra-harmony-trio",
+      "name": "Dr. KAS Signature Chakra Harmony Gift Box",
+      "hindiName": "डॉ. कास चक्र संतुलन उपहार पेटी",
+      "category": "gift-boxes",
+      "categoryLabel": "Curated Gift Collections",
+      "tagline": "Tri-Dosha Balance • Beautiful Festive & Corporate Gifting",
+      "description": "An elegant, wellness-themed presentation box containing 4 Royal Almond Date Laddus, 4 Sprouted Ragi Babool Gond Laddus, and 4 Seven-Seed Botanical Laddus. Accompanied by Dr. KAS’s Mindful Eating Guide and Chakra Symbolism Card.",
+      "ingredients": [
+        "Assorted: California Almonds, Arabian Dates, Sprouted Ragi, Babool Gond, 7 Botanical Seeds, Desi Cow Ghee, Pure Jaggery"
+      ],
+      "keyBenefits": [
+        "Complete wellness spectrum: Mind (Almond-Date), Body (Ragi Gond), Soul (Superseed)",
+        "Thoughtful gift for festivals, corporate wellness, baby showers, and family celebrations",
+        "Includes Dr. Khan Afroz Shams's Mindful Eating bookmark with portion suggestions",
+        "100% wholesome homemade goodness free from artificial additives"
+      ],
+      "targetAudience": [
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Laddu (Avg 35g)",
+        "caloriesApprox": 158,
+        "proteinG": 4.8,
+        "carbsG": 16.5,
+        "healthyFatsG": 8.7,
+        "dietaryFiberG": 3.8,
+        "sugarG": 9.2,
+        "sweetenerType": "Natural Dates & Organic Jaggery"
+      },
+      "price": 890,
+      "weight": "600g (Box of 12 Assorted Laddus)",
+      "badges": [
+        "Luxury Gifting",
+        "Chakra Harmony",
+        "Bestseller"
+      ],
+      "inStock": true,
+      "featured": true,
+      "chakraTheme": {
+        "chakraName": "Crown & All Chakras (Sahasrara)",
+        "chakraMeaning": "Wholeness, Inner Harmony & Complete Well-being",
+        "accentColor": "#8B5CF6"
+      },
+      "storageInstructions": "Store in a cool dry location. Beautiful gift sleeve packaging.",
+      "allergenWarning": "Contains almonds, cashews, assorted seeds, and dairy.",
+      "image": "/products/kas-gift-chakra-harmony-trio.jpg"
+    },
+    {
+      "id": "kas-seasonal-winter-ginger-walnut",
+      "name": "Winter Special — Ginger, Sesame & Walnut Nutrition Bite",
+      "hindiName": "शीतकालीन विशेष — अदरक, तिल और अखरोट पोषण बाइट",
+      "category": "seasonal",
+      "categoryLabel": "Seasonal Nutrition Bites",
+      "tagline": "Warming Winter Flavour • Dates, Walnuts, Sesame & Ginger",
+      "description": "A rich, aromatic bite made with dates, walnuts, almonds, sesame, coconut, and gentle ginger and cardamom. The warming flavour profile suits the winter season and offers another way to enjoy ingredients that contribute energy and nutrients within a balanced diet.",
+      "ingredients": [
+        "Dates (30%)",
+        "Walnuts (25%)",
+        "Almonds (20%)",
+        "Sesame Seeds (10%)",
+        "Coconut (8%)",
+        "Dry Ginger (Sonth) & Cardamom (7%)"
+      ],
+      "keyBenefits": [
+        "Warming flavour profile suited to cooler months",
+        "Dates and nuts contribute natural energy and fats",
+        "Sesame contributes minerals including calcium",
+        "A seasonal snack best enjoyed as part of a balanced diet"
+      ],
+      "targetAudience": [
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Bite (30g)",
+        "caloriesApprox": 145,
+        "proteinG": 3.8,
+        "carbsG": 15.5,
+        "healthyFatsG": 8.2,
+        "dietaryFiberG": 3,
+        "sugarG": 10,
+        "sweetenerType": "Natural Dates (No Refined Sugar)"
+      },
+      "price": 480,
+      "weight": "350g (Box of 10-12 bites)",
+      "badges": [
+        "Seasonal Winter",
+        "Warming Spices",
+        "No Refined Sugar"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Root Chakra (Muladhara)",
+        "chakraMeaning": "Warmth, Grounding & Seasonal Nourishment",
+        "accentColor": "#DC2626"
+      },
+      "storageInstructions": "Store in a cool dry place in an airtight container. Best consumed within 3 weeks.",
+      "allergenWarning": "Contains tree nuts (walnuts, almonds) and sesame seeds.",
+      "image": "/products/kas-seasonal-winter-ginger-walnut.jpg"
+    },
+    {
+      "id": "kas-seasonal-summer-coconut-lime",
+      "name": "Summer Special — Coconut, Mint & Lime Nutrition Bite",
+      "hindiName": "ग्रीष्मकालीन विशेष — नारियल, पुदीना और नींबू पोषण बाइट",
+      "category": "seasonal",
+      "categoryLabel": "Seasonal Nutrition Bites",
+      "tagline": "Fresh Summer Flavour • Coconut, Dates, Almonds & Lime",
+      "description": "A bright, tropical-inspired bite made with dates, coconut, almonds, cashews, a little lime zest, and optional dried mint. Its fresh flavour profile is designed for summer enjoyment. Pair with adequate water and a varied diet.",
+      "ingredients": [
+        "Dates (30%)",
+        "Coconut (25%)",
+        "Almonds (20%)",
+        "Cashews (15%)",
+        "Lime Zest (5%)",
+        "Dried Mint (optional, 5%)"
+      ],
+      "keyBenefits": [
+        "Light, fresh flavour profile suited to warmer months",
+        "Coconut and nuts contribute natural fats and energy",
+        "Lime zest adds a bright, refreshing taste",
+        "A seasonal snack best enjoyed as part of a varied, balanced diet"
+      ],
+      "targetAudience": [
+        "all"
+      ],
+      "nutrition": {
+        "servingSize": "1 Bite (30g)",
+        "caloriesApprox": 138,
+        "proteinG": 3.2,
+        "carbsG": 16,
+        "healthyFatsG": 7.5,
+        "dietaryFiberG": 2.8,
+        "sugarG": 11,
+        "sweetenerType": "Natural Dates (No Refined Sugar)"
+      },
+      "price": 480,
+      "weight": "350g (Box of 10-12 bites)",
+      "badges": [
+        "Seasonal Summer",
+        "Tropical Fresh",
+        "No Refined Sugar"
+      ],
+      "inStock": true,
+      "featured": false,
+      "chakraTheme": {
+        "chakraName": "Throat Chakra (Vishuddha)",
+        "chakraMeaning": "Freshness, Expression & Summer Vitality",
+        "accentColor": "#0284C7"
+      },
+      "storageInstructions": "Refrigerate during summer months. Consume within 2 weeks.",
+      "allergenWarning": "Contains tree nuts (almonds, cashews) and coconut. Optional mint ingredient disclosed.",
+      "image": "/products/kas-seasonal-summer-coconut-lime.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "customerName": "Amitesh",
+      "phone": "9911916497",
+      "email": "amitesh.aptechdwarka123@gmail.com",
+      "address": "h120",
+      "city": "new delhi",
+      "pincode": "110025",
+      "items": [
+        {
+          "productId": "kas-dryfruit-pista-walnut",
+          "productName": "Kashmiri Walnut & Pistachio Brain Vitality Laddu",
+          "quantity": 1,
+          "price": 590
+        }
+      ],
+      "subtotal": 590,
+      "shippingFee": 80,
+      "totalAmount": 670,
+      "paymentMethod": "upi",
+      "orderNotes": "",
+      "id": "KAS-9466",
+      "status": "Received",
+      "statusHistory": [
+        {
+          "status": "Received",
+          "timestamp": "2026-10-24T07:28:50.733Z",
+          "note": "Order received by Dr. KAS’s kitchen"
+        }
+      ],
+      "createdAt": "2026-10-24T07:28:50.733Z"
+    },
+    {
+      "customerName": "Aarav Mehta",
+      "phone": "+91 98990 11223",
+      "email": "aarav@example.com",
+      "address": "74 Golf Links",
+      "city": "New Delhi",
+      "pincode": "110003",
+      "items": [
+        {
+          "price": 520,
+          "productName": "Royal Almond & Medjool Date Laddu",
+          "productId": "kas-dryfruit-almond-date",
+          "quantity": 2
+        }
+      ],
+      "subtotal": 1040,
+      "shippingFee": 80,
+      "totalAmount": 1120,
+      "paymentMethod": "upi",
+      "orderNotes": "Deliver with care",
+      "id": "KAS-5053",
+      "status": "Received",
+      "statusHistory": [
+        {
+          "status": "Received",
+          "timestamp": "2026-10-20T13:37:07.163Z",
+          "note": "Order received by Dr. KAS’s kitchen"
+        }
+      ],
+      "createdAt": "2026-10-20T13:37:07.163Z"
+    },
+    {
+      "id": "KAS-7821",
+      "customerName": "Pooja Malhotra",
+      "phone": "+91 98112 34567",
+      "email": "pooja.malhotra@example.com",
+      "address": "B-402, Green Glen Layout, Bellandur",
+      "city": "Bengaluru",
+      "pincode": "560103",
+      "items": [
+        {
+          "productId": "kas-dryfruit-almond-date",
+          "productName": "Royal Almond & Medjool Date Laddu",
+          "quantity": 2,
+          "price": 520
+        },
+        {
+          "productId": "kas-millet-ragi-gond",
+          "productName": "Sprouted Ragi & Babool Gond Strength Laddu",
+          "quantity": 1,
+          "price": 460
+        }
+      ],
+      "subtotal": 1500,
+      "shippingFee": 0,
+      "totalAmount": 1500,
+      "paymentMethod": "upi",
+      "orderNotes": "Please deliver before Friday afternoon.",
+      "status": "Dispatched",
+      "statusHistory": [
+        {
+          "status": "Received",
+          "timestamp": "2026-10-18T10:30:00.000Z",
+          "note": "Order confirmed via UPI"
+        },
+        {
+          "status": "Preparing",
+          "timestamp": "2026-10-18T14:00:00.000Z",
+          "note": "Fresh batch hand-rolled with pure ghee"
+        },
+        {
+          "status": "Dispatched",
+          "timestamp": "2026-10-19T09:15:00.000Z",
+          "note": "Shipped via BlueDart Courier #BD889271"
+        }
+      ],
+      "createdAt": "2026-10-18T10:30:00.000Z"
+    },
+    {
+      "id": "KAS-8492",
+      "customerName": "Vikram Singhania",
+      "phone": "+91 98201 87654",
+      "email": "vikram.singhania@example.com",
+      "address": "Flat 12A, Sea View Towers, Worli",
+      "city": "Mumbai",
+      "pincode": "400018",
+      "items": [
+        {
+          "productId": "kas-gift-chakra-harmony-trio",
+          "productName": "Dr. KAS Signature Chakra Harmony Gift Box",
+          "quantity": 3,
+          "price": 890
+        }
+      ],
+      "subtotal": 2670,
+      "shippingFee": 0,
+      "totalAmount": 2670,
+      "paymentMethod": "upi",
+      "orderNotes": "Corporate gift packing with Dr. KAS note cards.",
+      "status": "Preparing",
+      "statusHistory": [
+        {
+          "status": "Received",
+          "timestamp": "2026-10-20T08:00:00.000Z",
+          "note": "Prepaid order confirmed"
+        },
+        {
+          "status": "Preparing",
+          "timestamp": "2026-10-20T11:30:00.000Z",
+          "note": "Fresh ingredients being ground and shaped"
+        }
+      ],
+      "createdAt": "2026-10-20T08:00:00.000Z"
+    }
+  ],
+  "consultations": [
+    {
+      "id": "CONS-101",
+      "clientName": "Sunita Deshmukh",
+      "phone": "+91 97654 32100",
+      "email": "sunita.d@example.com",
+      "topic": "Nutritional Psychology & Mindful Eating Habits",
+      "preferredDate": "2026-10-24",
+      "preferredTime": "11:00 AM IST",
+      "notes": "Seeking advice on emotional snacking during high stress and setting up sustainable family breakfast habits.",
+      "status": "Confirmed",
+      "createdAt": "2026-10-19T14:20:00.000Z"
+    },
+    {
+      "id": "CONS-102",
+      "clientName": "Rahul Vardhan",
+      "phone": "+91 99100 88223",
+      "email": "rahul.vardhan@example.com",
+      "topic": "Active Lifestyle & Metabolic Fueling for Men",
+      "preferredDate": "2026-10-26",
+      "preferredTime": "04:30 PM IST",
+      "notes": "Looking to replace processed protein bars with traditional dry-fruit/millet nutrition for endurance workouts.",
+      "status": "Pending Review",
+      "createdAt": "2026-10-20T10:15:00.000Z"
+    }
+  ]
+}
