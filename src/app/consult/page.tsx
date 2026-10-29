@@ -12,9 +12,47 @@ import {
   AlertCircle,
   Loader2,
   HelpCircle,
-  MessageCircle
+  MessageCircle,
+  User,
+  Phone,
+  Mail,
 } from "lucide-react";
 import { ConsultationBooking } from "@/types";
+import { Container, Section, SectionHeader, Button, Input, Textarea, Card, Badge } from "@/components/ui";
+
+const topics = [
+  {
+    id: "Nutritional Psychology & Emotional Snacking Habits",
+    title: "Nutritional Psychology & Stress Snacking",
+    desc: "Address emotional cravings, mid-afternoon energy crashes, and mindful eating habits.",
+  },
+  {
+    id: "Family & Child Healthy Snacking Routine",
+    title: "Family & Child Snacking Routine",
+    desc: "Gently transition children and teens from ultra-processed packaged snacks to wholesome Indian foods.",
+  },
+  {
+    id: "Women's Life-Stage Nourishment (Postnatal / Hormonal)",
+    title: "Women's Life-Stage Nourishment",
+    desc: "Tailored nutritional advice for fertility, postpartum strength, bone density, and hormonal care.",
+  },
+  {
+    id: "Men's Vitality, Energy & Workout Nutrition",
+    title: "Men's Metabolic Vitality & Active Living",
+    desc: "Natural whole food fueling for endurance sports, desk stamina, and muscle recovery.",
+  },
+  {
+    id: "Older Adults Gentle Digestion & Traditional Nutrition",
+    title: "Senior Digestive Care & Nutrition",
+    desc: "Gentle textures, herbal spice pairing, and comforting traditional digestion support.",
+  },
+] as const;
+
+const timeSlots = [
+  "Morning (10:00 AM - 12:00 PM IST)",
+  "Afternoon (02:00 PM - 04:00 PM IST)",
+  "Evening (05:00 PM - 07:00 PM IST)",
+] as const;
 
 export default function ConsultPage() {
   const [formData, setFormData] = useState({
@@ -23,46 +61,12 @@ export default function ConsultPage() {
     email: "",
     topic: "Nutritional Psychology & Emotional Snacking Habits",
     preferredDate: "",
-    preferredTime: "Morning (10:00 AM - 12:00 PM)",
-    notes: ""
+    preferredTime: "Morning (10:00 AM - 12:00 PM IST)",
+    notes: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [confirmedBooking, setConfirmedBooking] = useState<ConsultationBooking | null>(null);
-
-  const topics = [
-    {
-      id: "Nutritional Psychology & Emotional Snacking Habits",
-      title: "Nutritional Psychology & Stress Snacking",
-      desc: "Address emotional cravings, mid-afternoon energy crashes, and mindful eating habits."
-    },
-    {
-      id: "Family & Child Healthy Snacking Routine",
-      title: "Family & Child Snacking Routine",
-      desc: "Gently transition children and teens from ultra-processed packaged snacks to wholesome Indian foods."
-    },
-    {
-      id: "Women's Life-Stage Nourishment (Postnatal / Hormonal)",
-      title: "Women’s Life-Stage Nourishment",
-      desc: "Tailored nutritional advice for fertility, postpartum strength, bone density, and hormonal care."
-    },
-    {
-      id: "Men's Vitality, Energy & Workout Nutrition",
-      title: "Men’s Metabolic Vitality & Active Living",
-      desc: "Natural whole food fueling for endurance sports, desk stamina, and muscle recovery."
-    },
-    {
-      id: "Older Adults Gentle Digestion & Traditional Nutrition",
-      title: "Senior Digestive Care & Nutrition",
-      desc: "Gentle textures, herbal spice pairing, and comforting traditional digestion support."
-    }
-  ];
-
-  const timeSlots = [
-    "Morning (10:00 AM - 12:00 PM IST)",
-    "Afternoon (02:00 PM - 04:00 PM IST)",
-    "Evening (05:00 PM - 07:00 PM IST)"
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,7 +83,7 @@ export default function ConsultPage() {
       const res = await fetch("/api/consultations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const data = await res.json();
@@ -95,141 +99,136 @@ export default function ConsultPage() {
     }
   };
 
+  const handleReset = () => {
+    setConfirmedBooking(null);
+    setFormData({
+      clientName: "",
+      phone: "",
+      email: "",
+      topic: topics[0].id,
+      preferredDate: "",
+      preferredTime: timeSlots[0],
+      notes: "",
+    });
+  };
+
   return (
-    <div className="py-10 sm:py-16 space-y-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="py-10 sm:py-16 space-y-12">
+      <Container size="lg">
         {/* Banner */}
-        <div className="text-center space-y-3">
-          <div className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-[#B45309] bg-amber-100 px-3 py-1 rounded-full">
-            <HeartHandshake className="w-3.5 h-3.5 text-[#B45309]" />
-            <span>1-on-1 Guidance</span>
-          </div>
-          <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#27211A] leading-tight">
-            Book Nutritional Consultation
-          </h1>
-          <p className="text-sm sm:text-base text-[#6B5A47] max-w-2xl mx-auto">
-            Schedule a personalized session with <strong>Dr. Khan Afroz Shams</strong> to explore your relationship 
-            with food, overcome stress snacking, and create nourishing family habits.
-          </p>
-        </div>
+        <SectionHeader
+          label="1-on-1 Guidance"
+          icon={<HeartHandshake className="w-5 h-5 text-gold-600" />}
+          title="Book Nutritional Consultation"
+          description="Schedule a personalized session with <strong>Dr. Khan Afroz Shams</strong> to explore your relationship with food, overcome stress snacking, and create nourishing family habits."
+          align="center"
+        />
 
         {confirmedBooking ? (
           /* Confirmation Success State */
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-[#E8DEC9] shadow-xl text-center space-y-6 animate-fadeIn">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto shadow-sm">
-              <CheckCircle2 className="w-9 h-9" />
+          <Card variant="elevated" padding="xl" className="text-center space-y-6 animate-fade-in-up">
+            <div className="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto shadow-sm">
+              <CheckCircle2 className="w-9 h-9" aria-hidden="true" />
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#B45309]">
+              <Badge variant="success" size="md">
                 Appointment Request Confirmed
-              </span>
-              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-[#27211A]">
+              </Badge>
+              <h2 className="font-serif font-bold text-2xl sm:text-3xl text-ink-dark">
                 Thank You, {confirmedBooking.clientName}!
               </h2>
-              <p className="text-xs sm:text-sm text-[#6B5A47] max-w-md mx-auto">
-                Dr. Shams’s team will review your requested slot and message you on WhatsApp to confirm connection details.
+              <p className="text-xs sm:text-sm text-ink-muted max-w-md mx-auto">
+                Dr. Shams's team will review your requested slot and message you on WhatsApp to confirm connection details.
               </p>
             </div>
 
-            <div className="bg-[#FAF6EE] p-5 rounded-2xl border border-[#E8DEC7] text-left text-xs space-y-2.5 max-w-md mx-auto">
-              <div className="flex justify-between border-b border-[#EFE8D8] pb-2">
-                <span className="text-[#7C6A53] font-semibold">Reference ID:</span>
-                <span className="font-mono font-bold text-[#1C3D2B]">{confirmedBooking.id}</span>
+            <Card variant="outlined" padding="md" className="max-w-md mx-auto text-left text-xs space-y-2.5">
+              <div className="flex justify-between border-b border-border-light pb-2">
+                <span className="text-ink-muted font-semibold">Reference ID:</span>
+                <span className="font-mono font-bold text-ink-dark">{confirmedBooking.id}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7C6A53] font-semibold">Date & Time:</span>
-                <span className="font-semibold text-[#27211A]">
+                <span className="text-ink-muted font-semibold">Date & Time:</span>
+                <span className="font-semibold text-ink-dark">
                   {confirmedBooking.preferredDate} ({confirmedBooking.preferredTime})
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-[#7C6A53] font-semibold">Focus Area:</span>
-                <span className="font-semibold text-[#27211A] truncate max-w-[220px]">
+                <span className="text-ink-muted font-semibold">Focus Area:</span>
+                <span className="font-semibold text-ink-dark truncate max-w-[220px]">
                   {confirmedBooking.topic}
                 </span>
               </div>
-            </div>
+            </Card>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
-              <Link
-                href="/shop"
-                className="w-full sm:w-auto bg-[#B45309] hover:bg-[#92400E] text-white px-8 py-3 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition-all"
-              >
-                Explore The Laddu Collection
+              <Link href="/shop">
+                <Button size="lg" fullWidth>
+                  Explore The Laddu Collection
+                </Button>
               </Link>
-              <button
-                onClick={() => setConfirmedBooking(null)}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl border border-[#DACFBB] text-[#4A3E31] text-xs font-semibold hover:bg-[#FAF6EE]"
-              >
+              <Button variant="outline" size="md" fullWidth onClick={handleReset}>
                 Book Another Session
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card>
         ) : (
           /* Interactive Booking Form */
-          <form
-            onSubmit={handleSubmit}
-            className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8DEC9] shadow-sm space-y-8"
-          >
+          <form onSubmit={handleSubmit} className="space-y-8 animate-fade-in-up">
             {error && (
-              <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-2xl text-xs flex items-center space-x-2">
-                <AlertCircle className="w-4 h-4 shrink-0" />
+              <div className="bg-rose-50 border border-rose-200 text-rose-800 p-4 rounded-xl text-xs flex items-center gap-2 animate-fade-in" role="alert">
+                <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
                 <span>{error}</span>
               </div>
             )}
 
             {/* Step 1: Topic Selection */}
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1C3D2B] block">
-                1. Select Consultation Focus Area
-              </span>
+            <Card variant="outlined" padding="lg" className="space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xs font-bold">1</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-forest-700">Select Consultation Focus Area</span>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {topics.map((t) => (
                   <button
                     key={t.id}
                     type="button"
                     onClick={() => setFormData({ ...formData, topic: t.id })}
-                    className={`text-left p-4 rounded-2xl border transition-all text-xs ${
+                    className={`text-left p-4 rounded-xl border transition-all text-xs ${
                       formData.topic === t.id
-                        ? "border-[#B45309] bg-amber-50/70 shadow-sm"
-                        : "border-[#E8DEC9] bg-[#FCFAF6] hover:bg-[#FAF6EE]"
+                        ? "border-gold-500 bg-amber-50/70 shadow-sm"
+                        : "border-border-light bg-cream hover:bg-cream-warm"
                     }`}
                   >
-                    <div className="font-serif font-bold text-sm text-[#27211A]">{t.title}</div>
-                    <div className="text-[11px] text-[#6B5A47] mt-1 leading-relaxed">{t.desc}</div>
+                    <div className="font-serif font-bold text-sm text-ink-dark">{t.title}</div>
+                    <div className="text-[11px] text-ink-muted mt-1 leading-relaxed">{t.desc}</div>
                   </button>
                 ))}
               </div>
-            </div>
+            </Card>
 
             {/* Step 2: Date & Slot */}
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1C3D2B] block">
-                2. Preferred Schedule
-              </span>
+            <Card variant="outlined" padding="lg" className="space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xs font-bold">2</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-forest-700">Preferred Schedule</span>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input
+                  label="Select Preferred Date *"
+                  type="date"
+                  required
+                  value={formData.preferredDate}
+                  onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                  leftIcon={<Calendar className="w-4 h-4" />}
+                />
                 <div>
-                  <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                    Select Preferred Date *
-                  </label>
-                  <input
-                    type="date"
-                    required
-                    value={formData.preferredDate}
-                    onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                    className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none text-[#2D261E]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                    Preferred Time Slot
-                  </label>
+                  <label className="label">Preferred Time Slot</label>
                   <select
                     value={formData.preferredTime}
                     onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                    className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none text-[#2D261E]"
+                    className="input appearance-none bg-[url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3E%3Cpath stroke=%27%23655544%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3E%3C/svg%27%3E')] bg-right-3 bg-center bg-no-repeat pr-10"
                   >
                     {timeSlots.map((s, idx) => (
                       <option key={idx} value={s}>
@@ -239,116 +238,90 @@ export default function ConsultPage() {
                   </select>
                 </div>
               </div>
-            </div>
+            </Card>
 
             {/* Step 3: Contact Details */}
-            <div className="space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1C3D2B] block">
-                3. Your Contact Information
-              </span>
+            <Card variant="outlined" padding="lg" className="space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-gold-100 text-gold-600 flex items-center justify-center text-xs font-bold">3</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-forest-700">Your Contact Information</span>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Shalini Roy"
-                    value={formData.clientName}
-                    onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                    className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                    WhatsApp Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                  Email Address (Optional)
-                </label>
-                <input
-                  type="email"
-                  placeholder="shalini@example.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none"
+                <Input
+                  label="Full Name *"
+                  required
+                  placeholder="e.g. Shalini Roy"
+                  value={formData.clientName}
+                  onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
+                  leftIcon={<User className="w-4 h-4" />}
+                />
+                <Input
+                  label="WhatsApp Phone Number *"
+                  type="tel"
+                  required
+                  placeholder="+91 98765 43210"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  leftIcon={<Phone className="w-4 h-4" />}
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                  Share any questions or dietary patterns you want Dr. Shams to review (Optional)
-                </label>
-                <textarea
-                  rows={3}
-                  placeholder="e.g. I experience 4 PM sweet cravings during work sprints, looking for realistic habit swaps..."
-                  value={formData.notes}
-                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-4 py-2.5 text-xs sm:text-sm bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#B45309]/30 outline-none resize-none"
-                />
-              </div>
-            </div>
+              <Input
+                label="Email Address (Optional)"
+                type="email"
+                placeholder="shalini@example.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                leftIcon={<Mail className="w-4 h-4" />}
+              />
+
+              <Textarea
+                label="Share any questions or dietary patterns you want Dr. Shams to review (Optional)"
+                placeholder="e.g. I experience 4 PM sweet cravings during work sprints, looking for realistic habit swaps..."
+                value={formData.notes}
+                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                rows={3}
+              />
+            </Card>
 
             {/* Submit Button */}
-            <div className="pt-4 border-t border-[#EFE8D8] flex items-center justify-between">
-              <div className="flex items-center space-x-1.5 text-xs text-[#7C6A53]">
-                <ShieldCheck className="w-4 h-4 text-emerald-700" />
+            <div className="pt-4 border-t border-border-light flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div className="flex items-center gap-1.5 text-xs text-ink-muted">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" aria-hidden="true" />
                 <span>Strictly Confidential Consultation</span>
               </div>
 
-              <button
+              <Button
                 type="submit"
-                disabled={loading}
-                className="flex items-center space-x-2 bg-gradient-to-r from-[#B45309] to-[#92400E] hover:from-[#92400E] hover:to-[#78350F] text-white px-8 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all disabled:opacity-50"
+                size="lg"
+                isLoading={loading}
+                leftIcon={loading ? null : <Calendar className="w-4 h-4 text-gold-300" />}
+                fullWidth={true}
               >
-                {loading ? (
-                  <>
-                    <Loader2 className="w-4 h-4 animate-spin text-amber-300" />
-                    <span>Booking Session...</span>
-                  </>
-                ) : (
-                  <>
-                    <Calendar className="w-4 h-4 text-amber-300" />
-                    <span>Schedule Appointment</span>
-                  </>
-                )}
-              </button>
+                {loading ? "Booking Session..." : "Schedule Appointment"}
+              </Button>
             </div>
           </form>
         )}
 
         {/* Consultation FAQ */}
-        <div className="bg-[#FAF5EB] rounded-3xl p-6 sm:p-8 border border-[#E5DAC6] space-y-4 text-xs text-[#5C4D3D]">
-          <h3 className="font-serif font-bold text-base text-[#27211A] flex items-center space-x-2">
-            <HelpCircle className="w-4 h-4 text-[#B45309]" />
+        <Card variant="outlined" padding="lg" className="space-y-4">
+          <h3 className="font-serif font-bold text-base text-ink-dark flex items-center gap-2">
+            <HelpCircle className="w-4 h-4 text-gold-600" aria-hidden="true" />
             <span>What to Expect From Your Session</span>
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 leading-relaxed text-xs text-ink-muted">
             <div>
-              <strong className="text-[#27211A] block mb-1">Empathetic, Guilt-Free Dialogue:</strong>
+              <strong className="text-ink-dark block mb-1">Empathetic, Guilt-Free Dialogue:</strong>
               We do not count rigid calories or prescribe unsustainable deprivations. We examine routines, work rhythms, and emotional triggers.
             </div>
             <div>
-              <strong className="text-[#27211A] block mb-1">Tailored Whole Food Swaps:</strong>
+              <strong className="text-ink-dark block mb-1">Tailored Whole Food Swaps:</strong>
               Receive actionable, practical recommendations incorporating millets, seeds, and dry fruits into your family's weekly menu.
             </div>
           </div>
-        </div>
-      </div>
+        </Card>
+      </Container>
     </div>
   );
 }

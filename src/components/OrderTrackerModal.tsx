@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { X, Search, CheckCircle2, Clock, Truck, Home, AlertCircle, Loader2 } from "lucide-react";
 import { CustomerOrder, OrderStatus } from "@/types";
 
@@ -20,16 +20,7 @@ export default function OrderTrackerModal({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (initialOrderId) {
-      setSearchTerm(initialOrderId);
-      fetchOrder(initialOrderId);
-    }
-  }, [initialOrderId]);
-
-  if (!isOpen) return null;
-
-  const fetchOrder = async (id: string) => {
+  const fetchOrder = useCallback(async (id: string) => {
     if (!id.trim()) return;
     setLoading(true);
     setError(null);
@@ -40,20 +31,29 @@ export default function OrderTrackerModal({
         throw new Error(data.error || "Order not found. Please verify the ID or phone number.");
       }
       setOrder(data.order);
-    } catch (err: any) {
-      setError(err.message || "Failed to load order.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to load order.");
       setOrder(null);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (initialOrderId) {
+      setSearchTerm(initialOrderId);
+      fetchOrder(initialOrderId);
+    }
+  }, [initialOrderId, fetchOrder]);
+
+  if (!isOpen) return null;
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     fetchOrder(searchTerm);
   };
 
-  const steps: { key: OrderStatus; label: string; desc: string; icon: any }[] = [
+  const steps: { key: OrderStatus; label: string; desc: string; icon: React.ElementType }[] = [
     { key: "Received", label: "Order Received", desc: "Order logged and ingredients prepared", icon: Clock },
     { key: "Preparing", label: "Fresh Hand-Rolling", desc: "Slow roasted in desi cow ghee", icon: CheckCircle2 },
     { key: "Dispatched", label: "Dispatched", desc: "Sealed airtight & handed to courier", icon: Truck },
@@ -72,17 +72,18 @@ export default function OrderTrackerModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fadeIn">
-      <div className="bg-[#FCFAF6] rounded-3xl max-w-xl w-full border border-[#E5DAC6] shadow-2xl overflow-hidden relative my-8">
+    <div className="fixed inset-0 z-[500] overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+      <div className="bg-cream rounded-2xl max-w-xl w-full border border-border-mid shadow-2xl overflow-hidden relative my-8">
         {/* Header */}
-        <div className="bg-[#FAF5EB] p-6 border-b border-[#E8DEC8] flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Truck className="w-5 h-5 text-[#C28833]" />
-            <h3 className="font-serif font-bold text-xl text-[#27211A]">Track Your Fresh Batch</h3>
+        <div className="bg-cream-warm p-6 border-b border-border-light flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Truck className="w-5 h-5 text-gold-600" aria-hidden="true" />
+            <h3 className="font-serif font-bold text-xl text-ink-dark">Track Your Fresh Batch</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-[#EFE5D3] text-[#5C4D3D] transition-colors"
+            className="p-1.5 rounded-lg hover:bg-border-mid text-ink-muted transition-colors"
+            aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -96,20 +97,20 @@ export default function OrderTrackerModal({
                 type="text"
                 placeholder="Enter Order ID (e.g. KAS-7821) or Phone"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2.5 text-xs sm:text-sm bg-white border border-[#E5DAC6] rounded-xl focus:ring-2 focus:ring-[#C28833]/40 outline-none uppercase"
+                onChange={(e) => setSearchTerm(e.target.value.toUpperCase())}
+                className="w-full px-4 py-2.5 text-xs sm:text-sm bg-white border border-border-mid rounded-xl focus:ring-2 focus:ring-gold-500/40 outline-none uppercase font-mono"
               />
             </div>
             <button
               type="submit"
               disabled={loading || !searchTerm.trim()}
-              className="flex items-center space-x-1.5 bg-[#1C3D2B] hover:bg-[#132A1E] text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all disabled:opacity-50"
+              className="flex items-center gap-1.5 bg-forest hover:bg-forest-deep text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all disabled:opacity-50"
             >
               {loading ? (
-                <Loader2 className="w-4 h-4 animate-spin text-amber-300" />
+                <Loader2 className="w-4 h-4 animate-spin text-gold-300" aria-hidden="true" />
               ) : (
                 <>
-                  <Search className="w-4 h-4" />
+                  <Search className="w-4 h-4" aria-hidden="true" />
                   <span>Track</span>
                 </>
               )}
@@ -117,8 +118,8 @@ export default function OrderTrackerModal({
           </form>
 
           {error && (
-            <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 rounded-xl text-xs flex items-center space-x-2">
-              <AlertCircle className="w-4 h-4 shrink-0" />
+            <div className="bg-rose-50 border border-rose-200 text-rose-800 p-3.5 rounded-xl text-xs flex items-center gap-2" role="alert">
+              <AlertCircle className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span>{error}</span>
             </div>
           )}
@@ -127,17 +128,17 @@ export default function OrderTrackerModal({
           {order && (
             <div className="space-y-6 pt-2">
               {/* Order Info Card */}
-              <div className="bg-white p-4 rounded-2xl border border-[#E8DEC7] flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="bg-white p-4 rounded-xl border border-border-light flex flex-wrap items-center justify-between gap-3 text-xs">
                 <div>
-                  <span className="text-[#7C6A53] block text-[10px] uppercase font-bold">Order ID</span>
-                  <span className="font-mono font-bold text-sm text-[#1C3D2B]">{order.id}</span>
+                  <span className="text-ink-subtle block text-[10px] uppercase font-bold">Order ID</span>
+                  <span className="font-mono font-bold text-sm text-ink-dark">{order.id}</span>
                 </div>
                 <div>
-                  <span className="text-[#7C6A53] block text-[10px] uppercase font-bold">Customer</span>
-                  <span className="font-semibold text-[#27211A]">{order.customerName}</span>
+                  <span className="text-ink-subtle block text-[10px] uppercase font-bold">Customer</span>
+                  <span className="font-semibold text-ink-dark">{order.customerName}</span>
                 </div>
                 <div>
-                  <span className="text-[#7C6A53] block text-[10px] uppercase font-bold">Current Status</span>
+                  <span className="text-ink-subtle block text-[10px] uppercase font-bold">Current Status</span>
                   <span className="inline-block bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded-full text-[11px]">
                     {order.status}
                   </span>
@@ -146,26 +147,24 @@ export default function OrderTrackerModal({
 
               {/* Stepper Progress */}
               <div className="space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#7C6A53]">
-                  Preparation & Delivery Progress
-                </h4>
-                <div className="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-[#E5DAC6]">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-ink-muted">Preparation & Delivery Progress</h4>
+                <div className="relative pl-6 space-y-6 before:content-[''] before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-0.5 before:bg-border-mid">
                   {steps.map((step) => {
                     const status = getStepStatus(step.key);
                     const StepIcon = step.icon;
 
                     return (
-                      <div key={step.key} className="relative flex items-start space-x-3.5">
+                      <div key={step.key} className="relative flex items-start gap-3.5">
                         <div
                           className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 -ml-6 border-2 transition-all ${
                             status === "completed"
                               ? "bg-emerald-600 border-emerald-600 text-white"
                               : status === "current"
                               ? "bg-amber-500 border-amber-500 text-white animate-pulse"
-                              : "bg-white border-[#DACFBB] text-[#8C7A65]"
+                              : "bg-white border-border-dark text-ink-subtle"
                           }`}
                         >
-                          <StepIcon className="w-3.5 h-3.5" />
+                          <StepIcon className="w-3.5 h-3.5" aria-hidden="true" />
                         </div>
                         <div>
                           <div
@@ -174,12 +173,12 @@ export default function OrderTrackerModal({
                                 ? "text-amber-800"
                                 : status === "completed"
                                 ? "text-emerald-800"
-                                : "text-[#7C6A53]"
+                                : "text-ink-muted"
                             }`}
                           >
                             {step.label}
                           </div>
-                          <div className="text-[11px] text-[#8C7A65]">{step.desc}</div>
+                          <div className="text-[11px] text-ink-subtle">{step.desc}</div>
                         </div>
                       </div>
                     );
@@ -189,15 +188,13 @@ export default function OrderTrackerModal({
 
               {/* Status History Notes */}
               {order.statusHistory && order.statusHistory.length > 0 && (
-                <div className="bg-[#FAF6EE] p-4 rounded-2xl border border-[#E8DEC7] space-y-2 text-xs">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#7C6A53]">
-                    Kitchen Log Updates:
-                  </span>
+                <div className="bg-cream-warm p-4 rounded-xl border border-border-light space-y-2 text-xs">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-ink-muted block">Kitchen Log Updates:</span>
                   <div className="space-y-1.5">
                     {order.statusHistory.map((h, i) => (
-                      <div key={i} className="flex justify-between text-[#5C4D3D] text-[11px]">
+                      <div key={i} className="flex justify-between text-ink-light text-[11px]">
                         <span>• {h.note || h.status}</span>
-                        <span className="text-[#8C7A65]">
+                        <span className="text-ink-subtle">
                           {new Date(h.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                         </span>
                       </div>
@@ -207,19 +204,17 @@ export default function OrderTrackerModal({
               )}
 
               {/* Items in order */}
-              <div className="bg-white p-4 rounded-2xl border border-[#E8DEC7] text-xs space-y-2">
-                <span className="font-semibold text-[#27211A] block border-b border-[#EFE8D8] pb-1.5">
-                  Ordered Laddus
-                </span>
+              <div className="bg-white p-4 rounded-xl border border-border-light text-xs space-y-2">
+                <span className="font-semibold text-ink-dark block border-b border-border-light pb-1.5">Ordered Laddus</span>
                 {order.items.map((it, idx) => (
-                  <div key={idx} className="flex justify-between text-[#5C4D3D]">
+                  <div key={idx} className="flex justify-between text-ink-light">
                     <span>{it.productName} × {it.quantity}</span>
-                    <span className="font-semibold text-[#27211A]">₹{it.price * it.quantity}</span>
+                    <span className="font-semibold text-ink-dark">₹{it.price * it.quantity}</span>
                   </div>
                 ))}
-                <div className="flex justify-between pt-2 border-t border-[#EFE8D8] font-bold text-sm text-[#27211A]">
+                <div className="flex justify-between pt-2 border-t border-border-light font-bold text-sm text-ink-dark">
                   <span>Total Amount</span>
-                  <span className="text-[#B45309]">₹{order.totalAmount}</span>
+                  <span className="text-gold-600">₹{order.totalAmount}</span>
                 </div>
               </div>
             </div>

@@ -12,7 +12,6 @@ export default function InteractiveTasteMatcher() {
   const { addToCart } = useCart();
   const [selectedGoal, setSelectedGoal] = useState<string>("energy");
   const [selectedSweetener, setSelectedSweetener] = useState<string>("zero-sugar");
-  const [matchedProductId, setMatchedProductId] = useState<string>("kas-dryfruit-almond-date");
   const [added, setAdded] = useState(false);
 
   const goals = [
@@ -29,8 +28,8 @@ export default function InteractiveTasteMatcher() {
     { id: "any", label: "Chef's Choice (Pure Natural)" }
   ];
 
-  // Auto calculate whenever selection changes
-  useEffect(() => {
+  // Auto calculate whenever selection changes - use useMemo for derived state
+  const matchedProductId = React.useMemo(() => {
     let resultId = "kas-dryfruit-almond-date";
     if (selectedGoal === "brain") {
       resultId = "kas-dryfruit-pista-walnut";
@@ -43,8 +42,7 @@ export default function InteractiveTasteMatcher() {
     } else {
       resultId = selectedSweetener === "organic-gur" ? "kas-millet-bajra-til" : "kas-dryfruit-almond-date";
     }
-    setMatchedProductId(resultId);
-    setAdded(false);
+    return resultId;
   }, [selectedGoal, selectedSweetener]);
 
   const matchedProduct = initialProducts.find((p) => p.id === matchedProductId) || initialProducts[0];

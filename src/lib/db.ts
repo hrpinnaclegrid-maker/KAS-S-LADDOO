@@ -60,6 +60,22 @@ export function updateProduct(id: string, updates: Partial<LadduProduct>): Laddu
   return db.products[index];
 }
 
+export function createProduct(product: LadduProduct): LadduProduct {
+  const db = getDatabase();
+  db.products.unshift(product);
+  saveDatabase(db);
+  return product;
+}
+
+export function deleteProduct(id: string): boolean {
+  const db = getDatabase();
+  const next = db.products.filter((p) => p.id !== id);
+  if (next.length === db.products.length) return false;
+  db.products = next;
+  saveDatabase(db);
+  return true;
+}
+
 // Order helpers
 export function getOrders(): CustomerOrder[] {
   const db = getDatabase();

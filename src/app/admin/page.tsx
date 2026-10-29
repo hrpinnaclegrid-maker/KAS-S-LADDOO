@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import {
   ShieldCheck,
@@ -23,10 +23,15 @@ import {
   Sparkles,
   ArrowLeft,
   Check,
-  AlertCircle
+  AlertCircle,
+  CreditCard,
+  User,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 import { CustomerOrder, ConsultationBooking, LadduProduct, OrderStatus, ConsultationStatus } from "@/types";
 import { initialProducts } from "@/data/initialData";
+import { Container, Section, Button, Card, Badge, Input } from "@/components/ui";
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -42,29 +47,13 @@ export default function AdminPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      loadData();
-    }
-  }, [isAuthenticated]);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (passcode.trim() === "kas2026" || passcode.trim() === "admin") {
-      setIsAuthenticated(true);
-      setPasscodeError(false);
-    } else {
-      setPasscodeError(true);
-    }
-  };
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setLoading(true);
     try {
       const [resOrders, resConsultations, resProducts] = await Promise.all([
         fetch("/api/orders"),
         fetch("/api/consultations"),
-        fetch("/api/products")
+        fetch("/api/products"),
       ]);
       const dataOrders = await resOrders.json();
       const dataConsultations = await resConsultations.json();
@@ -78,6 +67,23 @@ export default function AdminPage() {
     } finally {
       setLoading(false);
     }
+  }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      loadData();
+    }
+  }, [isAuthenticated, loadData]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passcode.trim() === "kas2026" || passcode.trim() === "admin") {
+      setIsAuthenticated(true);
+      setPasscodeError(false);
+      loadData();
+    } else {
+      setPasscodeError(true);
+    }
   };
 
   const handleUpdateOrderStatus = async (orderId: string, newStatus: OrderStatus) => {
@@ -86,7 +92,7 @@ export default function AdminPage() {
       const res = await fetch(`/api/orders/${orderId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: newStatus, note: `Status marked as ${newStatus} in kitchen portal` })
+        body: JSON.stringify({ status: newStatus, note: `Status marked as ${newStatus} in kitchen portal` }),
       });
       const data = await res.json();
       if (data.success) {
@@ -105,7 +111,7 @@ export default function AdminPage() {
       const res = await fetch("/api/consultations", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: consultationId, status: newStatus })
+        body: JSON.stringify({ id: consultationId, status: newStatus }),
       });
       const data = await res.json();
       if (data.success) {
@@ -116,6 +122,29 @@ export default function AdminPage() {
     } finally {
       setUpdatingId(null);
     }
+  };
+
+  const handleEditProduct = async (product: LadduProduct) => {
+    const name = window.prompt("Product name", product.name)?.trim();
+    if (!name) return;
+    const price = Number(window.prompt("Price in INR", String(product.price)));
+    if (!Number.isFinite(price) || price <= 0) return;
+    setUpdatingId(product.id);
+    try {
+      const res = await fetch("/api/products", { method: "PUT", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: product.id, updates: { name, price } }) });
+      const data = await res.json();
+      if (data.success) setProducts((prev) => prev.map((p) => (p.id === product.id ? data.product : p)));
+    } finally { setUpdatingId(null); }
+  };
+
+  const handleDeleteProduct = async (product: LadduProduct) => {
+    if (!window.confirm(`Delete “${product.name}” from the catalog?`)) return;
+    setUpdatingId(product.id);
+    try {
+      const res = await fetch(`/api/products?id=${encodeURIComponent(product.id)}`, { method: "DELETE" });
+      const data = await res.json();
+      if (data.success) setProducts((prev) => prev.filter((p) => p.id !== product.id));
+    } finally { setUpdatingId(null); }
   };
 
   const totalRevenue = orders.reduce((sum, o) => sum + (o.totalAmount || 0), 0);
@@ -136,232 +165,196 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-[80vh] flex items-center justify-center p-4 bg-gradient-to-b from-[#FAF5EB] to-[#F2E5D2]">
-        <div className="w-full max-w-md bg-white rounded-3xl p-8 border border-[#E8DEC9] shadow-2xl space-y-6">
+      <div className="min-h-[80vh] flex items-center justify-center p-4 bg-gradient-cream-warm">
+        <Card variant="elevated" padding="lg" className="w-full max-w-md space-y-6 animate-fade-in-up">
           <div className="text-center space-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-[#1C3D2B] text-amber-300 flex items-center justify-center mx-auto shadow-md">
-              <Lock className="w-8 h-8" />
+            <div className="w-16 h-16 rounded-2xl bg-forest text-gold-300 flex items-center justify-center mx-auto shadow-md">
+              <Lock className="w-8 h-8" aria-hidden="true" />
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#B45309] bg-amber-100 px-3 py-1 rounded-full inline-block">
-              Kitchen Desk & Operations
-            </span>
-            <h1 className="text-2xl font-serif font-bold text-[#27211A]">
-              Dr. KAS’S Admin Portal
-            </h1>
-            <p className="text-xs text-[#7C6A53]">
-              Enter authorized kitchen passcode to manage fresh dispatches, orders, and consultations.
-            </p>
+            <Badge variant="primary" size="md">Kitchen Desk & Operations</Badge>
+            <h1 className="text-2xl font-serif font-bold text-ink-dark">Dr. KAS'S Admin Portal</h1>
+            <p className="text-xs text-ink-muted">Enter authorized kitchen passcode to manage fresh dispatches, orders, and consultations.</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="text-xs font-semibold text-[#4A3E31] block mb-1.5">
-                Kitchen Passcode
-              </label>
-              <input
+              <label className="label">Kitchen Passcode</label>
+              <Input
                 type="password"
                 placeholder="Enter passcode (e.g. admin or kas2026)"
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-[#D5C9B3] focus:outline-none focus:ring-2 focus:ring-[#B45309] text-sm text-[#27211A]"
                 autoFocus
+                leftIcon={<Lock className="w-4 h-4" />}
               />
               {passcodeError && (
-                <p className="text-xs text-rose-600 mt-1 font-semibold flex items-center space-x-1">
-                  <AlertCircle className="w-3.5 h-3.5" />
+                <p className="text-xs text-rose-600 mt-1 font-semibold flex items-center gap-1" role="alert">
+                  <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Invalid passcode. (Hint: use <strong>admin</strong> or <strong>kas2026</strong>)</span>
                 </p>
               )}
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-[#1C3D2B] hover:bg-[#132A1E] text-white py-3.5 rounded-xl font-bold text-sm shadow transition-all"
-            >
+            <Button type="submit" size="lg" fullWidth>
               Access Kitchen Dashboard
-            </button>
+            </Button>
           </form>
 
           <div className="pt-2 text-center">
-            <Link href="/" className="text-xs font-semibold text-[#7C6A53] hover:text-[#B45309] inline-flex items-center space-x-1">
-              <ArrowLeft className="w-3.5 h-3.5" />
+            <Link href="/" className="text-xs font-semibold text-ink-muted hover:text-gold-600 inline-flex items-center gap-1">
+              <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Back to Storefront</span>
             </Link>
           </div>
-        </div>
+        </Card>
       </div>
     );
   }
 
   return (
-    <div className="py-8 sm:py-12 bg-[#FCFAF6] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div className="admin-page-shell py-8 sm:py-12 bg-cream min-h-screen">
+      <Container>
         {/* Top Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8DEC9] pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-light pb-6 animate-fade-in-up">
           <div className="space-y-1">
-            <div className="flex items-center space-x-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-xs font-bold text-emerald-800 uppercase tracking-widest">
-                Kitchen Operations Live
-              </span>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
+              <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Kitchen Operations Live</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#27211A]">
-              Dr. KAS’S Kitchen & Order Portal
-            </h1>
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ink-dark">Dr. KAS'S Kitchen & Order Portal</h1>
           </div>
 
-          <div className="flex items-center space-x-3">
-            <button
-              onClick={loadData}
-              disabled={loading}
-              className="flex items-center space-x-1.5 px-4 py-2 rounded-xl border border-[#D5C9B3] text-xs font-semibold hover:bg-white text-[#4A3E31] transition-all"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
-              <span>Refresh Data</span>
-            </button>
-            <Link
-              href="/"
-              className="px-4 py-2 rounded-xl bg-[#1C3D2B] text-white text-xs font-semibold hover:bg-[#132A1E] transition-all"
-            >
-              View Storefront →
+          <div className="flex items-center gap-3">
+            <Button variant="ghost" size="sm" onClick={loadData} disabled={loading} leftIcon={<RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />}>
+              Refresh Data
+            </Button>
+            <Link href="/">
+              <Button variant="primary" size="sm">
+                <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
+                View Storefront
+              </Button>
             </Link>
           </div>
         </div>
 
         {/* Real-time Operations Stats Bar */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white p-5 rounded-2xl border border-[#E8DEC9] shadow-2xs space-y-1">
-            <span className="text-[10px] font-bold uppercase text-[#7C6A53]">Total Store Revenue</span>
-            <div className="text-2xl font-serif font-bold text-[#B45309]">₹{totalRevenue.toLocaleString("en-IN")}</div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 animate-fade-in-up delay-1">
+          <Card variant="default" padding="md" className="space-y-1">
+            <span className="text-[10px] font-bold uppercase text-ink-muted">Total Store Revenue</span>
+            <div className="text-2xl font-serif font-bold text-gold-600">₹{totalRevenue.toLocaleString("en-IN")}</div>
             <span className="text-[10px] text-emerald-700 font-semibold">{orders.length} Verified Orders</span>
-          </div>
+          </Card>
 
-          <div className="bg-white p-5 rounded-2xl border border-[#E8DEC9] shadow-2xs space-y-1">
-            <span className="text-[10px] font-bold uppercase text-[#7C6A53]">Active Kitchen Batches</span>
-            <div className="text-2xl font-serif font-bold text-[#1C3D2B]">{pendingOrders}</div>
+          <Card variant="default" padding="md" className="space-y-1">
+            <span className="text-[10px] font-bold uppercase text-ink-muted">Active Kitchen Batches</span>
+            <div className="text-2xl font-serif font-bold text-forest-700">{pendingOrders}</div>
             <span className="text-[10px] text-amber-700 font-semibold">Preparing or Awaiting Dispatch</span>
-          </div>
+          </Card>
 
-          <div className="bg-white p-5 rounded-2xl border border-[#E8DEC9] shadow-2xs space-y-1">
-            <span className="text-[10px] font-bold uppercase text-[#7C6A53]">Consultation Inquiries</span>
-            <div className="text-2xl font-serif font-bold text-[#4338CA]">{consultations.length}</div>
+          <Card variant="default" padding="md" className="space-y-1">
+            <span className="text-[10px] font-bold uppercase text-ink-muted">Consultation Inquiries</span>
+            <div className="text-2xl font-serif font-bold text-indigo-600">{consultations.length}</div>
             <span className="text-[10px] text-indigo-700 font-semibold">{pendingConsultations} Pending Review</span>
-          </div>
+          </Card>
 
-          <div className="bg-white p-5 rounded-2xl border border-[#E8DEC9] shadow-2xs space-y-1">
-            <span className="text-[10px] font-bold uppercase text-[#7C6A53]">Active Signature Recipes</span>
-            <div className="text-2xl font-serif font-bold text-[#27211A]">{products.length}</div>
+          <Card variant="default" padding="md" className="space-y-1">
+            <span className="text-[10px] font-bold uppercase text-ink-muted">Active Signature Recipes</span>
+            <div className="text-2xl font-serif font-bold text-ink-dark">{products.length}</div>
             <span className="text-[10px] text-emerald-700 font-semibold">100% Desi Ghee Formulations</span>
-          </div>
+          </Card>
         </div>
 
         {/* Tab Controls */}
-        <div className="flex border-b border-[#E8DEC9] space-x-2">
+        <div className="flex border-b border-border-light space-x-2 animate-fade-in-up delay-2">
           <button
             onClick={() => setActiveTab("orders")}
-            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center space-x-2 ${
-              activeTab === "orders"
-                ? "border-[#B45309] text-[#B45309]"
-                : "border-transparent text-[#7C6A53] hover:text-[#27211A]"
+            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
+              activeTab === "orders" ? "border-gold-600 text-gold-600" : "border-transparent text-ink-muted hover:text-ink-dark"
             }`}
           >
-            <Package className="w-4 h-4" />
+            <Package className="w-4 h-4" aria-hidden="true" />
             <span>Customer Orders ({orders.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab("consultations")}
-            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center space-x-2 ${
-              activeTab === "consultations"
-                ? "border-[#B45309] text-[#B45309]"
-                : "border-transparent text-[#7C6A53] hover:text-[#27211A]"
+            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
+              activeTab === "consultations" ? "border-gold-600 text-gold-600" : "border-transparent text-ink-muted hover:text-ink-dark"
             }`}
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-4 h-4" aria-hidden="true" />
             <span>Consultation Bookings ({consultations.length})</span>
           </button>
 
           <button
             onClick={() => setActiveTab("inventory")}
-            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center space-x-2 ${
-              activeTab === "inventory"
-                ? "border-[#B45309] text-[#B45309]"
-                : "border-transparent text-[#7C6A53] hover:text-[#27211A]"
+            className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${
+              activeTab === "inventory" ? "border-gold-600 text-gold-600" : "border-transparent text-ink-muted hover:text-ink-dark"
             }`}
           >
-            <Layers className="w-4 h-4" />
+            <Layers className="w-4 h-4" aria-hidden="true" />
             <span>Recipe Catalog ({products.length})</span>
           </button>
         </div>
 
         {/* Tab 1: Orders Management */}
         {activeTab === "orders" && (
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-[#E8DEC9]">
-              <div className="relative flex-1 max-w-md">
-                <Search className="w-4 h-4 text-[#8C7A65] absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Search by Order ID (KAS-7821), name or phone..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-4 py-2 text-xs bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl text-[#27211A]"
-                />
-              </div>
+          <div className="space-y-4 animate-fade-in-up delay-3">
+            <Card variant="outlined" padding="md">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <div className="relative flex-1 max-w-md">
+                  <Search className="w-4 h-4 text-ink-subtle absolute left-3 top-1/2 -translate-y-1/2" aria-hidden="true" />
+                  <Input
+                    placeholder="Search by Order ID (KAS-7821), name or phone..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-9"
+                  />
+                </div>
 
-              <div className="flex items-center space-x-2 overflow-x-auto">
-                <Filter className="w-4 h-4 text-[#8C7A65]" />
-                <span className="text-xs text-[#7C6A53]">Status:</span>
-                {["all", "Received", "Preparing", "Dispatched", "Delivered"].map((st) => (
-                  <button
-                    key={st}
-                    onClick={() => setSelectedStatus(st)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                      selectedStatus === st
-                        ? "bg-[#1C3D2B] text-white"
-                        : "bg-[#FAF6EE] text-[#5C4D3D] hover:bg-[#EFE7D8]"
-                    }`}
-                  >
-                    {st === "all" ? "All Orders" : st}
-                  </button>
-                ))}
+                <div className="flex items-center gap-2 overflow-x-auto">
+                  <Filter className="w-4 h-4 text-ink-subtle" aria-hidden="true" />
+                  <span className="text-xs text-ink-muted">Status:</span>
+                  {["all", "Received", "Preparing", "Dispatched", "Delivered"].map((st) => (
+                    <button
+                      key={st}
+                      onClick={() => setSelectedStatus(st)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                        selectedStatus === st ? "bg-forest text-white" : "bg-cream text-ink-muted hover:bg-border-mid"
+                      }`}
+                    >
+                      {st === "all" ? "All Orders" : st}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Card>
 
             {filteredOrders.length === 0 ? (
-              <div className="bg-white rounded-3xl p-12 text-center border border-[#E8DEC9] text-[#7C6A53] text-sm">
+              <Card variant="outlined" padding="lg" className="text-center">
                 No orders match your filter criteria.
-              </div>
+              </Card>
             ) : (
               <div className="space-y-4">
                 {filteredOrders.map((order) => (
-                  <div
-                    key={order.id}
-                    className="bg-white rounded-2xl border border-[#E8DEC9] p-5 shadow-2xs hover:shadow-md transition-all space-y-4"
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#EFE8D8] pb-3">
-                      <div className="flex items-center space-x-3">
-                        <span className="font-serif font-bold text-base text-[#1C3D2B]">{order.id}</span>
-                        <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900">
-                          {order.paymentMethod.toUpperCase()}
-                        </span>
-                        <span className="text-xs text-[#7C6A53]">
-                          {new Date(order.createdAt).toLocaleDateString("en-IN", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric"
-                          })}
+                  <Card key={order.id} variant="outlined" padding="lg" className="space-y-4 hover:shadow-md transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border-light pb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="font-serif font-bold text-base text-forest-700">{order.id}</span>
+                        <Badge variant="primary" size="sm">{order.paymentMethod.toUpperCase()}</Badge>
+                        <span className="text-xs text-ink-muted">
+                          {new Date(order.createdAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}
                         </span>
                       </div>
 
                       {/* Status Selector */}
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xs text-[#7C6A53]">Status:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-ink-muted">Status:</span>
                         <select
                           value={order.status}
                           disabled={updatingId === order.id}
                           onChange={(e) => handleUpdateOrderStatus(order.id, e.target.value as OrderStatus)}
-                          className="bg-[#FAF6EE] border border-[#D5C9B3] rounded-lg px-3 py-1 text-xs font-bold text-[#1C3D2B] focus:outline-none"
+                          className="bg-cream border border-border-mid rounded-lg px-3 py-1 text-xs font-bold text-forest-700 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
                         >
                           <option value="Received">Received</option>
                           <option value="Preparing">Preparing in Kitchen</option>
@@ -373,42 +366,40 @@ export default function AdminPage() {
                     </div>
 
                     {/* Customer & Address Details */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-[#4A3E31]">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-ink-muted">
                       <div>
-                        <span className="text-[10px] font-bold text-[#8C7A65] uppercase block">Customer</span>
-                        <div className="font-bold text-[#27211A]">{order.customerName}</div>
-                        <div className="text-[#6B5A47]">{order.phone}</div>
-                        <div className="text-[#6B5A47]">{order.email}</div>
+                        <span className="text-[10px] font-bold text-ink-subtle uppercase block">Customer</span>
+                        <div className="font-bold text-ink-dark">{order.customerName}</div>
+                        <div className="text-ink-muted">{order.phone}</div>
+                        <div className="text-ink-muted">{order.email}</div>
                       </div>
 
                       <div>
-                        <span className="text-[10px] font-bold text-[#8C7A65] uppercase block">Shipping Address</span>
+                        <span className="text-[10px] font-bold text-ink-subtle uppercase block">Shipping Address</span>
                         <div>{order.address}</div>
                         <div>{order.city} - {order.pincode}</div>
                       </div>
 
-                      <div className="bg-[#FAF6EE] p-3 rounded-xl border border-[#EAE0CD]">
-                        <span className="text-[10px] font-bold text-[#8C7A65] uppercase block">Order Total</span>
-                        <div className="font-serif font-bold text-lg text-[#B45309]">₹{order.totalAmount}</div>
+                      <Card variant="default" padding="md" className="bg-cream">
+                        <span className="text-[10px] font-bold text-ink-subtle uppercase block">Order Total</span>
+                        <div className="font-serif font-bold text-lg text-gold-600">₹{order.totalAmount}</div>
                         {order.orderNotes && (
-                          <div className="text-[11px] text-[#7C6A53] mt-1 italic">
-                            “{order.orderNotes}”
-                          </div>
+                          <div className="text-[11px] text-ink-muted mt-1 italic">"{order.orderNotes}"</div>
                         )}
-                      </div>
+                      </Card>
                     </div>
 
                     {/* Items List */}
-                    <div className="bg-[#FCFAF6] p-3 rounded-xl border border-[#EFE8D8] text-xs space-y-1">
-                      <span className="text-[10px] font-bold uppercase text-[#8C7A65] block">Items in this box:</span>
+                    <Card variant="default" padding="md" className="bg-cream space-y-1">
+                      <span className="text-[10px] font-bold uppercase text-ink-subtle block">Items in this box:</span>
                       {order.items.map((item, idx) => (
                         <div key={idx} className="flex items-center justify-between font-medium">
                           <span>{item.quantity} × {item.productName}</span>
-                          <span className="font-bold text-[#27211A]">₹{item.price * item.quantity}</span>
+                          <span className="font-bold text-ink-dark">₹{item.price * item.quantity}</span>
                         </div>
                       ))}
-                    </div>
-                  </div>
+                    </Card>
+                  </Card>
                 ))}
               </div>
             )}
@@ -417,28 +408,25 @@ export default function AdminPage() {
 
         {/* Tab 2: Consultations Management */}
         {activeTab === "consultations" && (
-          <div className="space-y-4">
+          <div className="space-y-4 animate-fade-in-up delay-3">
             {consultations.length === 0 ? (
-              <div className="bg-white rounded-3xl p-12 text-center border border-[#E8DEC9] text-[#7C6A53] text-sm">
+              <Card variant="outlined" padding="lg" className="text-center">
                 No consultation inquiries currently.
-              </div>
+              </Card>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {consultations.map((c) => (
-                  <div
-                    key={c.id}
-                    className="bg-white rounded-2xl border border-[#E8DEC9] p-5 shadow-2xs space-y-3"
-                  >
-                    <div className="flex items-center justify-between border-b border-[#EFE8D8] pb-2">
+                  <Card key={c.id} variant="outlined" padding="lg" className="space-y-3">
+                    <div className="flex items-center justify-between border-b border-border-light pb-2">
                       <div>
-                        <span className="font-serif font-bold text-sm text-[#1C3D2B]">{c.clientName}</span>
-                        <span className="text-[10px] text-[#8C7A65] block">{c.id}</span>
+                        <span className="font-serif font-bold text-sm text-ink-dark">{c.clientName}</span>
+                        <span className="text-[10px] text-ink-subtle block">{c.id}</span>
                       </div>
                       <select
                         value={c.status}
                         disabled={updatingId === c.id}
                         onChange={(e) => handleUpdateConsultationStatus(c.id, e.target.value as ConsultationStatus)}
-                        className="bg-[#FAF6EE] border border-[#D5C9B3] rounded-lg px-2.5 py-1 text-xs font-bold text-[#1C3D2B]"
+                        className="bg-cream border border-border-mid rounded-lg px-2.5 py-1 text-xs font-bold text-forest-700 focus:outline-none focus:ring-2 focus:ring-gold-500/30"
                       >
                         <option value="Pending Review">Pending Review</option>
                         <option value="Confirmed">Confirmed</option>
@@ -447,17 +435,15 @@ export default function AdminPage() {
                       </select>
                     </div>
 
-                    <div className="text-xs text-[#4A3E31] space-y-1">
-                      <div><strong className="text-[#27211A]">Topic:</strong> {c.topic}</div>
-                      <div><strong className="text-[#27211A]">Preferred Date & Time:</strong> {c.preferredDate} at {c.preferredTime}</div>
-                      <div><strong className="text-[#27211A]">Phone:</strong> {c.phone} | <strong className="text-[#27211A]">Email:</strong> {c.email}</div>
+                    <div className="text-xs text-ink-muted space-y-1">
+                      <div><strong className="text-ink-dark">Topic:</strong> {c.topic}</div>
+                      <div><strong className="text-ink-dark">Preferred Date & Time:</strong> {c.preferredDate} at {c.preferredTime}</div>
+                      <div><strong className="text-ink-dark">Phone:</strong> {c.phone} | <strong className="text-ink-dark">Email:</strong> {c.email}</div>
                       {c.notes && (
-                        <div className="bg-[#FAF6EE] p-2 rounded-lg border border-[#EAE0CD] text-[11px] mt-2 italic">
-                          Client Notes: “{c.notes}”
-                        </div>
+                        <div className="bg-cream p-2 rounded-lg border border-border-light text-[11px] mt-2 italic">Client Notes: "{c.notes}"</div>
                       )}
                     </div>
-                  </div>
+                  </Card>
                 ))}
               </div>
             )}
@@ -466,29 +452,32 @@ export default function AdminPage() {
 
         {/* Tab 3: Recipe Catalog */}
         {activeTab === "inventory" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up delay-3">
             {products.map((p) => (
-              <div
-                key={p.id}
-                className="bg-white rounded-2xl border border-[#E8DEC9] p-4 shadow-2xs space-y-2"
-              >
+              <Card key={p.id} variant="outlined" padding="md" className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-amber-900 bg-amber-100 px-2 py-0.5 rounded uppercase">
-                    {p.categoryLabel}
-                  </span>
-                  <span className="text-xs font-bold text-[#B45309]">₹{p.price}</span>
+                  <Badge variant="primary" size="sm">{p.categoryLabel}</Badge>
+                  <span className="text-xs font-bold text-gold-600">₹{p.price}</span>
                 </div>
-                <h4 className="font-serif font-bold text-sm text-[#27211A]">{p.name}</h4>
-                <p className="text-[11px] text-[#7C6A53] line-clamp-2">{p.tagline}</p>
-                <div className="pt-2 border-t border-[#EFE8D8] flex items-center justify-between text-xs">
-                  <span className="text-[#7C6A53]">{p.weight}</span>
+                <h4 className="font-serif font-bold text-sm text-ink-dark">{p.name}</h4>
+                <p className="text-[11px] text-ink-muted line-clamp-2">{p.tagline}</p>
+                <div className="pt-2 border-t border-border-light flex items-center justify-between text-xs">
+                  <span className="text-ink-muted">{p.weight}</span>
                   <span className="text-emerald-700 font-bold">100% In Kitchen</span>
                 </div>
-              </div>
+                <div className="pt-2 flex gap-2">
+                  <button onClick={() => handleEditProduct(p)} disabled={updatingId === p.id} className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-border-mid px-3 py-2 text-xs font-semibold text-ink-mid hover:bg-surface-warm">
+                    <Pencil className="w-3.5 h-3.5" /> Edit
+                  </button>
+                  <button onClick={() => handleDeleteProduct(p)} disabled={updatingId === p.id} className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-lg border border-rose-200 px-3 py-2 text-xs font-semibold text-rose-700 hover:bg-rose-50">
+                    <Trash2 className="w-3.5 h-3.5" /> Delete
+                  </button>
+                </div>
+              </Card>
             ))}
           </div>
         )}
-      </div>
+      </Container>
     </div>
   );
 }

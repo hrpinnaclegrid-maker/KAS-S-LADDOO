@@ -11,9 +11,10 @@ import {
   ShieldCheck,
   Truck,
   Sparkles,
-  ArrowLeft
+  ArrowLeft,
 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { Container, Section, SectionHeader, Button, Card, CardContent, Badge } from "@/components/ui";
 
 export default function CartPage() {
   const { cart, cartTotal, cartCount, updateQuantity, removeFromCart } = useCart();
@@ -24,182 +25,187 @@ export default function CartPage() {
   const total = cartTotal + shippingFee;
 
   return (
-    <div className="py-10 sm:py-16 space-y-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8DEC9] pb-6">
-        <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-[#B45309] block">
-            Your Selection
-          </span>
-          <h1 className="text-3xl font-serif font-bold text-[#27211A] mt-1">
-            Shopping Bag ({cartCount} {cartCount === 1 ? "Item" : "Items"})
-          </h1>
+    <div className="py-10 sm:py-16 space-y-12">
+      <Container size="lg">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-light pb-6 animate-fade-in-up">
+          <div>
+            <Badge variant="primary" size="sm">
+              Your Selection
+            </Badge>
+            <h1 className="text-3xl font-serif font-bold text-ink-dark mt-1">
+              Shopping Bag ({cartCount} {cartCount === 1 ? "Item" : "Items"})
+            </h1>
+          </div>
+
+          <Link
+            href="/shop"
+            className="flex items-center gap-1.5 text-xs font-bold text-forest-700 hover:text-gold-600 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+            <span>Continue Shopping</span>
+          </Link>
         </div>
 
-        <Link
-          href="/shop"
-          className="flex items-center space-x-1.5 text-xs font-bold text-[#1C3D2B] hover:text-[#B45309] transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Continue Shopping</span>
-        </Link>
-      </div>
-
-      {cart.length === 0 ? (
-        /* Empty Bag State */
-        <div className="bg-white rounded-3xl p-12 sm:p-20 border border-[#E8DEC9] text-center space-y-5">
-          <div className="w-16 h-16 rounded-full bg-[#FAF5EB] flex items-center justify-center mx-auto text-[#8C7A65]">
-            <ShoppingBag className="w-8 h-8 opacity-50" />
-          </div>
-          <div className="space-y-1">
-            <h2 className="font-serif font-bold text-2xl text-[#27211A]">Your bag is empty</h2>
-            <p className="text-xs sm:text-sm text-[#7C6A53] max-w-sm mx-auto">
-              You haven't added any handcrafted dry fruits or millet laddus yet.
-            </p>
-          </div>
-          <div>
+        {cart.length === 0 ? (
+          /* Empty Bag State */
+          <Card variant="elevated" padding="lg" className="text-center space-y-5 animate-fade-in-up">
+            <div className="w-16 h-16 rounded-full bg-cream-warm flex items-center justify-center mx-auto text-ink-subtle">
+              <ShoppingBag className="w-8 h-8 opacity-50" aria-hidden="true" />
+            </div>
+            <div className="space-y-1">
+              <h2 className="font-serif font-bold text-2xl text-ink-dark">Your bag is empty</h2>
+              <p className="text-xs sm:text-sm text-ink-muted max-w-sm mx-auto">
+                You haven't added any handcrafted dry fruits or millet laddus yet.
+              </p>
+            </div>
             <Link
               href="/shop"
-              className="inline-flex items-center space-x-2 bg-[#B45309] hover:bg-[#92400E] text-white px-7 py-3 rounded-xl font-bold text-xs sm:text-sm shadow transition-all"
+              className="inline-flex items-center gap-2 bg-gold-600 hover:bg-gold-700 text-white px-7 py-3 rounded-xl font-bold text-xs sm:text-sm shadow transition-all"
             >
               <span>Explore The Laddu Collection</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
-          </div>
-        </div>
-      ) : (
-        /* Cart With Items */
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Items */}
-          <div className="lg:col-span-7 space-y-4">
-            {/* Free Shipping Banner */}
-            <div className="bg-[#FAF6EE] p-4 rounded-2xl border border-[#E8DEC7] space-y-2">
-              <div className="flex items-center justify-between text-xs font-semibold text-[#4A3E31]">
-                <span className="flex items-center space-x-1.5">
-                  <Truck className="w-4 h-4 text-emerald-700" />
-                  <span>
-                    {freeShippingEligible
-                      ? "🎉 You qualified for Free Express Delivery!"
-                      : `Add ₹${freeShippingThreshold - cartTotal} more for Free Delivery`}
+          </Card>
+        ) : (
+          /* Cart With Items */
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Column: Items */}
+            <div className="lg:col-span-7 space-y-4">
+              {/* Free Shipping Banner */}
+              <Card variant="outlined" padding="md" className="space-y-2">
+                <div className="flex items-center justify-between text-xs font-semibold text-ink-muted">
+                  <span className="flex items-center gap-1.5">
+                    <Truck className="w-4 h-4 text-emerald-600" aria-hidden="true" />
+                    <span>
+                      {freeShippingEligible
+                        ? "🎉 You qualified for Free Express Delivery!"
+                        : `Add ₹${freeShippingThreshold - cartTotal} more for Free Delivery`}
+                    </span>
                   </span>
-                </span>
-              </div>
-              <div className="w-full bg-[#E5DAC6] rounded-full h-2 overflow-hidden">
-                <div
-                  className="bg-[#1C3D2B] h-2 rounded-full transition-all duration-300"
-                  style={{
-                    width: `${Math.min(100, (cartTotal / freeShippingThreshold) * 100)}%`
-                  }}
-                ></div>
+                </div>
+                <div className="w-full bg-border-mid rounded-full h-2 overflow-hidden">
+                  <div
+                    className="bg-forest h-2 rounded-full transition-all duration-300"
+                    style={{
+                      width: `${Math.min(100, (cartTotal / freeShippingThreshold) * 100)}%`,
+                    }}
+                    role="progressbar"
+                    aria-valuenow={Math.min(100, (cartTotal / freeShippingThreshold) * 100)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label="Free shipping progress"
+                  ></div>
+                </div>
+              </Card>
+
+              {/* Cart Items List */}
+              <div className="space-y-3">
+                {cart.map((item) => (
+                  <Card key={item.product.id} variant="outlined" padding="md" className="space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <Badge variant="primary" size="sm">
+                          {item.product.categoryLabel}
+                        </Badge>
+                        <h3 className="font-serif font-bold text-base text-ink-dark mt-1">
+                          {item.product.name}
+                        </h3>
+                        <span className="text-xs text-ink-muted">{item.product.weight}</span>
+                      </div>
+
+                      <button
+                        onClick={() => removeFromCart(item.product.id)}
+                        className="p-1.5 text-ink-subtle hover:text-rose-600 transition-colors"
+                        title="Remove laddu"
+                        aria-label={`Remove ${item.product.name}`}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    <div className="flex items-center justify-between border-t border-border-light pt-3">
+                      <div className="flex items-center gap-3 bg-surface-warm border border-border-mid rounded-xl px-3 py-1.5">
+                        <button
+                          onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                          className="p-0.5 text-ink-light hover:text-ink-dark"
+                          aria-label="Decrease quantity"
+                        >
+                          <Minus className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="text-xs font-bold text-ink-dark w-6 text-center">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                          className="p-0.5 text-ink-light hover:text-ink-dark"
+                          aria-label="Increase quantity"
+                        >
+                          <Plus className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      <div className="text-right">
+                        <span className="font-serif font-bold text-lg text-forest-700">
+                          ₹{item.product.price * item.quantity}
+                        </span>
+                        <span className="text-[10px] text-ink-muted block">
+                          (₹{item.product.price} each)
+                        </span>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
               </div>
             </div>
 
-            {/* Cart Items List */}
-            <div className="space-y-3">
-              {cart.map((item) => (
-                <div
-                  key={item.product.id}
-                  className="bg-white p-5 rounded-3xl border border-[#E8DEC9] space-y-4 shadow-2xs"
-                >
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <span className="text-[10px] font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded">
-                        {item.product.categoryLabel}
-                      </span>
-                      <h3 className="font-serif font-bold text-base text-[#27211A] mt-1">
-                        {item.product.name}
-                      </h3>
-                      <span className="text-xs text-[#7C6A53]">{item.product.weight}</span>
-                    </div>
+            {/* Right Column: Order Summary Card */}
+            <div className="lg:col-span-5">
+              <Card variant="elevated" padding="lg" className="space-y-6 sticky top-28">
+                <h3 className="font-serif font-bold text-lg text-ink-dark border-b border-border-light pb-3">
+                  Order Summary
+                </h3>
 
-                    <button
-                      onClick={() => removeFromCart(item.product.id)}
-                      className="p-1.5 text-[#8C7A65] hover:text-rose-600 transition-colors"
-                      title="Remove laddu"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
+                <div className="space-y-3 text-xs text-ink-muted">
+                  <div className="flex justify-between">
+                    <span>Subtotal ({cartCount} items)</span>
+                    <span className="font-semibold text-ink-dark">₹{cartTotal}</span>
                   </div>
-
-                  <div className="flex items-center justify-between border-t border-[#EFE8D8] pt-3">
-                    <div className="flex items-center space-x-3 bg-[#FAF6EE] border border-[#E5DAC6] rounded-xl px-3 py-1.5">
-                      <button
-                        onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="p-0.5 text-[#5C4D3D] hover:text-[#27211A]"
-                        aria-label="Decrease quantity"
-                      >
-                        <Minus className="w-3.5 h-3.5" />
-                      </button>
-                      <span className="text-xs font-bold text-[#27211A] w-6 text-center">
-                        {item.quantity}
-                      </span>
-                      <button
-                        onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="p-0.5 text-[#5C4D3D] hover:text-[#27211A]"
-                        aria-label="Increase quantity"
-                      >
-                        <Plus className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-
-                    <div className="text-right">
-                      <span className="font-serif font-bold text-lg text-[#1C3D2B]">
-                        ₹{item.product.price * item.quantity}
-                      </span>
-                      <span className="text-[10px] text-[#7C6A53] block">
-                        (₹{item.product.price} each)
-                      </span>
-                    </div>
+                  <div className="flex justify-between">
+                    <span>Kitchen Express Dispatch</span>
+                    <span className="font-semibold text-forest-700">
+                      {shippingFee === 0 ? "FREE" : `₹${shippingFee}`}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-base font-serif font-bold text-ink-dark pt-3 border-t border-border-light">
+                    <span>Total Amount</span>
+                    <span className="text-gold-600">₹{total}</span>
                   </div>
                 </div>
-              ))}
+
+                <Link
+                  href="/checkout"
+                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 hover:shadow-gold-lg text-white py-4 rounded-2xl font-bold text-sm shadow-gold transition-all"
+                >
+                  <span>Proceed to Checkout</span>
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+
+                <div className="space-y-2 pt-2 border-t border-border-light text-[11px] text-ink-muted">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
+                    <span>100% Homemade fresh with Desi Cow Ghee</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Truck className="w-4 h-4 text-gold-600 shrink-0" aria-hidden="true" />
+                    <span>Cash/UPI on Delivery and Prepaid UPI Accepted</span>
+                  </div>
+                </div>
+              </Card>
             </div>
           </div>
-
-          {/* Right Column: Order Summary Card */}
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-[#E8DEC9] space-y-6 shadow-sm sticky top-28">
-            <h3 className="font-serif font-bold text-lg text-[#27211A] border-b border-[#EFE8D8] pb-3">
-              Order Summary
-            </h3>
-
-            <div className="space-y-3 text-xs text-[#5C4D3D]">
-              <div className="flex justify-between">
-                <span>Subtotal ({cartCount} items)</span>
-                <span className="font-semibold text-[#27211A]">₹{cartTotal}</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Kitchen Express Dispatch</span>
-                <span className="font-semibold text-[#1C3D2B]">
-                  {shippingFee === 0 ? "FREE" : `₹${shippingFee}`}
-                </span>
-              </div>
-              <div className="flex justify-between text-base font-serif font-bold text-[#27211A] pt-3 border-t border-[#EFE8D8]">
-                <span>Total Amount</span>
-                <span className="text-[#B45309]">₹{total}</span>
-              </div>
-            </div>
-
-            <Link
-              href="/checkout"
-              className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-[#B45309] to-[#92400E] hover:from-[#92400E] hover:to-[#78350F] text-white py-4 rounded-2xl font-bold text-sm shadow-md transition-all"
-            >
-              <span>Proceed to Checkout</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <div className="space-y-2 pt-2 border-t border-[#EFE8D8] text-[11px] text-[#7C6A53]">
-              <div className="flex items-center space-x-2">
-                <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>100% Homemade fresh with Desi Cow Ghee</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Truck className="w-4 h-4 text-[#B45309] shrink-0" />
-                <span>Cash/UPI on Delivery and Prepaid UPI Accepted</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        )}
+      </Container>
     </div>
   );
 }

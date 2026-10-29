@@ -18,28 +18,26 @@ interface CartContextType {
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+function getInitialCart(): CartItem[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const stored = localStorage.getItem("drkas_cart_items");
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(getInitialCart);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [lastAddedProduct, setLastAddedProduct] = useState<LadduProduct | null>(null);
-
-  // Initialize from localStorage
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("drkas_cart_items");
-      if (stored) {
-        setCart(JSON.parse(stored));
-      }
-    } catch (e) {
-      console.warn("Could not load cart from storage");
-    }
-  }, []);
 
   const saveCart = (newCart: CartItem[]) => {
     setCart(newCart);
     try {
       localStorage.setItem("drkas_cart_items", JSON.stringify(newCart));
-    } catch (e) {
+    } catch {
       console.warn("Could not save cart to storage");
     }
   };

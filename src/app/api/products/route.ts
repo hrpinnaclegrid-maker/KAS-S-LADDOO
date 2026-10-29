@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProducts, updateProduct } from "@/lib/db";
+import { getProducts, updateProduct, createProduct, deleteProduct } from "@/lib/db";
 
 export async function GET(request: Request) {
   try {
@@ -43,6 +43,29 @@ export async function PUT(request: Request) {
     }
 
     return NextResponse.json({ success: true, product: updated });
+  } catch (error: any) {
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
+
+export async function POST(request: Request) {
+  try {
+    const product = await request.json();
+    if (!product?.id || !product?.name || !product?.price) {
+      return NextResponse.json({ success: false, error: "id, name, and price are required" }, { status: 400 });
+    }
+    return NextResponse.json({ success: true, product: createProduct(product) }, { status: 201 });
+  } catch (error: any) {
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    const id = new URL(request.url).searchParams.get("id");
+    if (!id) return NextResponse.json({ success: false, error: "Product id is required" }, { status: 400 });
+    if (!deleteProduct(id)) return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+    return NextResponse.json({ success: true, id });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }

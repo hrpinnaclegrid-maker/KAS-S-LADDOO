@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   X,
   ShieldCheck,
@@ -13,9 +13,22 @@ import {
   RefreshCw,
   Lock,
   ChevronRight,
-  DollarSign
+  DollarSign,
+  Search,
+  Filter,
+  Eye,
+  Phone,
+  Mail,
+  MapPin,
+  Sparkles,
+  ArrowLeft,
+  Check,
+  AlertCircle,
+  CreditCard,
+  User,
 } from "lucide-react";
 import { CustomerOrder, ConsultationBooking, LadduProduct, OrderStatus, ConsultationStatus } from "@/types";
+import { Container, Section, Button, Card, Badge, Input } from "@/components/ui";
 
 interface AdminDashboardModalProps {
   isOpen: boolean;
@@ -39,27 +52,9 @@ export default function AdminDashboardModal({
   const [consultations, setConsultations] = useState<ConsultationBooking[]>([]);
   const [loading, setLoading] = useState(false);
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [loadTrigger, setLoadTrigger] = useState(0);
 
-  useEffect(() => {
-    if (isOpen && isAuthenticated) {
-      loadData();
-    }
-  }, [isOpen, isAuthenticated]);
-
-  if (!isOpen) return null;
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (passcode.trim() === "kas2026" || passcode.trim() === "admin") {
-      setIsAuthenticated(true);
-      setPasscodeError(false);
-      loadData();
-    } else {
-      setPasscodeError(true);
-    }
-  };
-
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     setLoading(true);
     try {
       const [resOrders, resConsultations] = await Promise.all([
@@ -75,6 +70,31 @@ export default function AdminDashboardModal({
       console.error("Error loading admin data:", err);
     } finally {
       setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen && isAuthenticated) {
+      setLoadTrigger(prev => prev + 1);
+    }
+  }, [isOpen, isAuthenticated]);
+
+  useEffect(() => {
+    if (loadTrigger > 0 && isOpen && isAuthenticated) {
+      loadData();
+    }
+  }, [loadTrigger, loadData]);
+
+  if (!isOpen) return null;
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passcode.trim() === "kas2026" || passcode.trim() === "admin") {
+      setIsAuthenticated(true);
+      setPasscodeError(false);
+      loadData();
+    } else {
+      setPasscodeError(true);
     }
   };
 
