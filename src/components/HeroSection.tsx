@@ -37,7 +37,7 @@ export default function HeroSection({ onExploreProducts, onBookConsultation }: H
             </div>
 
             <p className="text-[#5C4D3D] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Welcome to <strong className="text-[#2D261E]">Dr. KAS’S Homemade Laddu Collection</strong>. 
+              Welcome to <strong className="text-[#2D261E]">KAS Nourish &amp; Nurture Foods</strong>. 
               We bring together the traditional goodness of premium dry fruits, nutrient-dense millets, 
               and pure cow ghee—grounded in nutritional psychology and mindful snacking habits for every generation.
             </p>
@@ -102,7 +102,7 @@ export default function HeroSection({ onExploreProducts, onBookConsultation }: H
                   </div>
                 </div>
                 <span className="bg-[#1C3D2B] text-amber-200 text-[11px] font-semibold px-2.5 py-1 rounded-full">
-                  100% Homemade
+                  100% Homemade • Handmade
                 </span>
               </div>
 

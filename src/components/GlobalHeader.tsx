@@ -37,7 +37,7 @@ export default function GlobalHeader() {
       <div className="bg-forest text-cream text-[11px] sm:text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-forest-muted z-50 relative">
         <Sparkles className="w-3.5 h-3.5 text-gold-300 animate-pulse shrink-0" aria-hidden="true" />
         <span className="truncate">
-          Handcrafted in Small Batches with Pure Desi Cow Ghee • Zero Refined Sugar • Free Express Delivery Over ₹1,200
+          KAS Nourish &amp; Nurture Foods • 100% Homemade • Handmade • No Artificial Sweetener
         </span>
       </div>
 
@@ -46,7 +46,7 @@ export default function GlobalHeader() {
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
             {/* Brand Logo & Emblem */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="Dr. KAS'S Homepage">
+            <Link href="/" className="flex items-center gap-3 group" aria-label="KAS Nourish & Nurture Foods Homepage">
               <div className="relative">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#D4AF37] via-[#C28833] to-[#92400E] flex items-center justify-center text-white font-serif font-bold text-lg sm:text-xl shadow-md group-hover:scale-105 transition-transform">
                   <span className="tracking-tighter">KAS</span>
@@ -58,10 +58,10 @@ export default function GlobalHeader() {
 
               <div className="flex flex-col">
                 <span className="text-xl sm:text-2xl font-serif font-bold tracking-tight text-ink-dark group-hover:text-gold-600 transition-colors">
-                  DR. KAS'S
+                  KAS
                 </span>
                 <span className="text-[10px] sm:text-xs uppercase tracking-widest text-ink-muted font-semibold">
-                  Homemade Laddu Collection
+                  KAS Nourish &amp; Nurture Foods
                 </span>
                 <span className="text-[9px] text-ink-subtle italic hidden sm:inline -mt-0.5">
                   Healing Mind, Body & Soul

@@ -27,7 +27,7 @@ export default function Navbar({
       {/* Top Banner Notice */}
       <div className="bg-[#1C3D2B] text-[#FAF5EB] text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center space-x-2">
         <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-        <span>Handcrafted in Fresh Small Batches • Zero Artificial Preservatives • Mindful Nutrition by Dr. Khan Afroz Shams</span>
+        <span>100% Homemade • Handmade • No Artificial Sweetener • Mindful Nutrition by Dr. Khan Afroz Shams</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -84,7 +84,7 @@ function TrackOrderContent() {
           label="Real-time Kitchen Tracking"
           icon={<Truck className="w-5 h-5 text-gold-600" />}
           title="Track Your Fresh Batch"
-          description="Enter your Order ID (e.g. <strong>KAS-7821</strong>) or your contact phone number."
+          description={<>Enter your Order ID (e.g. <strong>KAS-7821</strong>) or your contact phone number.</>}
           align="center"
         />
 
@@ -100,7 +100,14 @@ function TrackOrderContent() {
                 leftIcon={<Search className="w-4 h-4" />}
               />
             </div>
-            <Button type="submit" size="lg" isLoading={loading} disabled={!searchTerm.trim()} leftIcon={loading ? null : <Search className="w-4 h-4" />}>
+            <Button
+              type="submit"
+              size="lg"
+              isLoading={loading}
+              disabled={!searchTerm.trim()}
+              className="!bg-forest !text-white disabled:opacity-100"
+              leftIcon={loading ? null : <Search className="w-4 h-4 text-white" />}
+            >
               {loading ? "Tracking..." : "Track Status"}
             </Button>
           </form>

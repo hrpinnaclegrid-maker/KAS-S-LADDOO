@@ -39,7 +39,7 @@ const liveAlerts = [
 
 const categories = [
   { id: "all", label: "All Items" },
-  { id: "zero-sugar", label: "Zero White Sugar" },
+  { id: "zero-sugar", label: "No Added Sugar" },
   { id: "millets", label: "Sprouted Millets" },
   { id: "seasonal", label: "Seasonals" },
   { id: "gifts", label: "Gift Boxes" },
@@ -134,7 +134,7 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 bg-amber-50 border border-gold-200 px-3.5 py-1 rounded-full text-xs font-bold text-amber-900">
                 <Sparkles className="w-3.5 h-3.5 text-amber-600 animate-spin" style={{ animationDuration: "6s" }} aria-hidden="true" />
-                <span>100% Homemade • Desi Cow Ghee • Zero White Sugar</span>
+                <span>100% Homemade • Handmade • Desi Cow Ghee • No Artificial Sweetener</span>
               </div>
 
               <div className="space-y-2">

@@ -78,7 +78,7 @@ export default function ProductCatalog({
           </h2>
           <p className="text-[#655544] text-base leading-relaxed">
             Wholesome dry fruits, sprouted millets, and ancient seeds slowly roasted in pure cow ghee. 
-            Free from artificial preservatives, artificial colors, and refined white sugar.
+            100% organic, with no added sugar, artificial sweetener, preservatives, or artificial colors.
           </p>
         </div>
 

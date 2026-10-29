@@ -168,8 +168,8 @@ export default function AdminPage() {
       <div className="min-h-[80vh] flex items-center justify-center p-4 bg-gradient-cream-warm">
         <Card variant="elevated" padding="lg" className="w-full max-w-md space-y-6 animate-fade-in-up">
           <div className="text-center space-y-2">
-            <div className="w-16 h-16 rounded-2xl bg-forest text-gold-300 flex items-center justify-center mx-auto shadow-md">
-              <Lock className="w-8 h-8" aria-hidden="true" />
+            <div className="w-16 h-16 rounded-2xl bg-forest text-white flex items-center justify-center mx-auto shadow-md">
+              <Lock className="w-8 h-8 text-white" aria-hidden="true" />
             </div>
             <Badge variant="primary" size="md">Kitchen Desk & Operations</Badge>
             <h1 className="text-2xl font-serif font-bold text-ink-dark">Dr. KAS'S Admin Portal</h1>
@@ -185,7 +185,7 @@ export default function AdminPage() {
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 autoFocus
-                leftIcon={<Lock className="w-4 h-4" />}
+                leftIcon={<Lock className="w-4 h-4 text-forest" />}
               />
               {passcodeError && (
                 <p className="text-xs text-rose-600 mt-1 font-semibold flex items-center gap-1" role="alert">
@@ -195,7 +195,7 @@ export default function AdminPage() {
               )}
             </div>
 
-            <Button type="submit" size="lg" fullWidth>
+            <Button type="submit" size="lg" fullWidth className="!bg-forest !text-white hover:!bg-forest-light">
               Access Kitchen Dashboard
             </Button>
           </form>
@@ -221,7 +221,8 @@ export default function AdminPage() {
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
               <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Kitchen Operations Live</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ink-dark">Dr. KAS'S Kitchen & Order Portal</h1>
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-ink-dark">KAS Kitchen &amp; Order Portal</h1>
+            <p className="mt-1 text-xs font-semibold tracking-wide text-ink-muted">KAS Nourish &amp; Nurture Foods</p>
           </div>
 
           <div className="flex items-center gap-3">
@@ -229,7 +230,7 @@ export default function AdminPage() {
               Refresh Data
             </Button>
             <Link href="/">
-              <Button variant="primary" size="sm">
+              <Button variant="primary" size="sm" className="!bg-forest !text-white hover:!bg-forest-light">
                 <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
                 View Storefront
               </Button>
@@ -265,7 +266,7 @@ export default function AdminPage() {
         </div>
 
         {/* Tab Controls */}
-        <div className="flex border-b border-border-light space-x-2 animate-fade-in-up delay-2">
+        <div className="mt-6 flex flex-wrap border-b border-border-light space-x-2 animate-fade-in-up delay-2">
           <button
             onClick={() => setActiveTab("orders")}
             className={`pb-3 px-4 text-xs font-bold transition-all border-b-2 flex items-center gap-2 ${

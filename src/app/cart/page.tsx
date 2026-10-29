@@ -194,7 +194,7 @@ export default function CartPage() {
                 <div className="space-y-2 pt-2 border-t border-border-light text-[11px] text-ink-muted">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
-                    <span>100% Homemade fresh with Desi Cow Ghee</span>
+                    <span>100% Homemade • Handmade • Desi Cow Ghee • No Artificial Sweetener</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Truck className="w-4 h-4 text-gold-600 shrink-0" aria-hidden="true" />

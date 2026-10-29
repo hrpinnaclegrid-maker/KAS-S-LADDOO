@@ -169,7 +169,7 @@ export default function InteractiveTasteMatcher() {
                   <span>Your Perfect Match</span>
                 </span>
                 <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded-full">
-                  100% Homemade
+                  100% Homemade • Handmade
                 </span>
               </div>
 

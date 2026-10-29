@@ -15,7 +15,7 @@ export default function FooterWrapper() {
             <span>Our Brand Promise</span>
           </div>
           <h3 className="font-serif font-bold text-2xl sm:text-3xl text-white">
-            DR. KAS'S — HEALING MIND, BODY & SOUL
+            KAS Nourish &amp; Nurture Foods — Homemade &amp; Handmade Nourishment
           </h3>
           <p className="text-[#E5EFE8] text-sm sm:text-base leading-relaxed max-w-4xl">
             "At Dr. KAS'S, we bring together thoughtfully selected ingredients—including dry fruits and

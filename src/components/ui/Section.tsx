@@ -55,7 +55,7 @@ export const SectionHeader = ({
 }: { 
   label?: string; 
   title: string; 
-  description?: string; 
+  description?: React.ReactNode; 
   align?: "left" | "center" | "right"; 
   className?: string;
   icon?: React.ReactNode;

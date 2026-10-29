@@ -8,11 +8,11 @@ import MobileBottomNav from "@/components/MobileBottomNav";
 import FooterWrapper from "@/components/FooterWrapper";
 
 export const metadata: Metadata = {
-  title: "Dr. KAS’S | Homemade Laddu Collection — Healing Mind, Body & Soul",
+  title: "KAS Nourish & Nurture Foods | Homemade Laddu Collection",
   description:
-    "A wellness-inspired food brand by Dr. Khan Afroz Shams. Handcrafted Dry Fruits Laddus, Millet Laddus, and Wholesome Homemade Varieties grounded in Nutritional Psychology and Chakra Balance.",
+    "KAS Nourish & Nurture Foods offers 100% organic homemade laddus with no added sugar, artificial sweetener, or preservatives.",
   keywords: [
-    "Dr. KAS",
+    "KAS Nourish & Nurture Foods",
     "Dr. Khan Afroz Shams",
     "Homemade Laddu",
     "Dry Fruits Laddu",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Dr. Khan Afroz Shams" }],
   openGraph: {
-    title: "Dr. KAS’S Homemade Laddu Collection",
+    title: "KAS Nourish & Nurture Foods Homemade Laddu Collection",
     description: "Nourishing the Body. Nurturing the Mind. Inspiring Inner Harmony.",
     type: "website"
   }
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased scroll-smooth">
+    <html lang="en" data-scroll-behavior="smooth" className="h-full antialiased scroll-smooth">
       <body className="min-h-full flex flex-col bg-[#FCFAF6] text-[#2D261E] pb-16 lg:pb-0">
         <CartProvider>
           <Suspense fallback={<div className="h-20 bg-[#FAF5EB]" />}>

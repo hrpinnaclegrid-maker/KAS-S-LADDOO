@@ -111,9 +111,10 @@ export default function FounderPage() {
               <div>
                 <Link
                   href="/consult"
-                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#B45309] to-[#92400E] hover:from-[#92400E] hover:to-[#78350F] text-white px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-md transition-all"
+                  className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#B45309] to-[#92400E] hover:from-[#92400E] hover:to-[#78350F] text-white hover:text-white px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-md transition-all"
+                  style={{ color: "#FFFFFF" }}
                 >
-                  <HeartHandshake className="w-4 h-4" />
+                  <HeartHandshake className="w-4 h-4" style={{ color: "#FFFFFF" }} />
                   <span>Book Consultation with Dr. Shams</span>
                 </Link>
               </div>
