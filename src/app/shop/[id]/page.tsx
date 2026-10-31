@@ -22,6 +22,7 @@ import {
 import { initialProducts } from "@/data/initialData";
 import { useCart } from "@/context/CartContext";
 import { Container, Section, Badge, Button, Card, CardContent } from "@/components/ui";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 function ProductDetailContent() {
   const params = useParams();
@@ -154,56 +155,90 @@ function ProductDetailContent() {
                 <p className="text-sm font-semibold text-forest-700">{product.tagline}</p>
               </div>
 
-              {/* Price & Quantity Bar */}
-              <Card variant="outlined" padding="md" className="flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <span className="text-xs text-ink-subtle block">{product.weight}</span>
-                  <span className="font-serif font-bold text-3xl text-gold-600">₹{product.price}</span>
+              {/* Price, Quantity & Purchase Actions */}
+              <div className="bg-gradient-to-br from-white to-[#FAF6EE] rounded-3xl p-5 sm:p-6 border border-[#E8DEC9] shadow-sm space-y-4">
+                <div className="flex items-baseline justify-between pb-3 border-b border-[#EAE0CD]">
+                  <div>
+                    <span className="text-xs text-ink-muted block font-medium">{product.weight}</span>
+                    <span className="font-serif font-bold text-3xl sm:text-4xl text-[#8A4B08]">₹{product.price}</span>
+                  </div>
+                  <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 border border-emerald-300 px-3 py-1 rounded-full shadow-xs">
+                    Fresh Kitchen Batch
+                  </span>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-2 bg-white border border-border-mid rounded-xl px-3 py-1.5 shadow-xs">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="p-1 text-ink-light hover:text-ink-dark"
-                      aria-label="Decrease quantity"
-                    >
-                      <Minus className="w-3.5 h-3.5" />
-                    </button>
-                    <span className="text-sm font-bold text-ink-dark w-6 text-center">
-                      {quantity}
-                    </span>
-                    <button
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="p-1 text-ink-light hover:text-ink-dark"
-                      aria-label="Increase quantity"
-                    >
-                      <Plus className="w-3.5 h-3.5" />
-                    </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {/* Quantity selector */}
+                  <div className="flex items-center justify-between sm:justify-center gap-3 bg-white border border-[#E2D6C0] rounded-2xl px-4 py-2.5 shadow-xs sm:w-auto">
+                    <span className="text-xs font-bold uppercase tracking-wider text-ink-muted">Qty</span>
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="w-7 h-7 rounded-lg bg-[#FAF5EB] hover:bg-[#EAE0CD] text-ink-dark flex items-center justify-center font-bold transition-colors"
+                        aria-label="Decrease quantity"
+                      >
+                        <Minus className="w-3.5 h-3.5" />
+                      </button>
+                      <span className="text-sm font-bold text-ink-dark w-7 text-center select-none font-mono">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={() => setQuantity(quantity + 1)}
+                        className="w-7 h-7 rounded-lg bg-[#FAF5EB] hover:bg-[#EAE0CD] text-ink-dark flex items-center justify-center font-bold transition-colors"
+                        aria-label="Increase quantity"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
 
-                  <Button
-                    size="lg"
+                  {/* Add to Bag Button */}
+                  <button
                     onClick={handleAdd}
-                    leftIcon={<ShoppingBag className="w-4 h-4" />}
-                    variant={added ? "secondary" : "primary"}
-                    className="whitespace-nowrap"
+                    disabled={added}
+                    className="w-full sm:flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm tracking-wide text-white transition-all duration-200 flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg active:translate-y-0 hover:-translate-y-0.5 cursor-pointer disabled:cursor-default"
+                    style={{
+                      background: added
+                        ? "#1C3D2B"
+                        : "linear-gradient(135deg, #B45309 0%, #C28833 50%, #8A3B05 100%)",
+                      color: "#FFFFFF",
+                      boxShadow: added
+                        ? "0 4px 14px rgba(28, 61, 43, 0.35)"
+                        : "0 6px 20px rgba(180, 83, 9, 0.35)",
+                    }}
                   >
-                    {added ? "Added to Bag!" : `Add to Bag (₹${product.price * quantity})`}
-                  </Button>
+                    {added ? (
+                      <>
+                        <CheckCircle2 className="w-5 h-5 text-emerald-300 shrink-0" />
+                        <span style={{ color: "#FFFFFF" }}>Added to Bag! ✓</span>
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingBag className="w-5 h-5 text-white shrink-0" />
+                        <span style={{ color: "#FFFFFF" }}>Add to Bag &mdash; ₹{product.price * quantity}</span>
+                      </>
+                    )}
+                  </button>
                 </div>
-              </Card>
 
-              {/* WhatsApp Quick Order button */}
-              <a
-                href={`https://wa.me/?text=${whatsappMessage}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl text-xs font-bold transition-all shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                <span>Instant Order on WhatsApp Concierge</span>
-              </a>
+                {/* WhatsApp Quick Order button */}
+                <a
+                  href={`https://wa.me/?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-2xl text-sm font-bold tracking-wide transition-all duration-200 shadow-md hover:shadow-lg active:translate-y-0 hover:-translate-y-0.5 cursor-pointer group"
+                  style={{
+                    backgroundColor: "#25D366",
+                    color: "#FFFFFF",
+                    boxShadow: "0 4px 16px rgba(37, 211, 102, 0.35)",
+                  }}
+                >
+                  <WhatsAppIcon className="w-5 h-5 fill-white text-white shrink-0 group-hover:scale-110 transition-transform" />
+                  <span style={{ color: "#FFFFFF" }} className="!text-white font-bold">
+                    Instant Order on WhatsApp Concierge
+                  </span>
+                </a>
+              </div>
 
               {/* Description */}
               <div className="space-y-2">

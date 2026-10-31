@@ -91,8 +91,24 @@ export interface ConsultationBooking {
   createdAt: string;
 }
 
+export type UserRole = "admin" | "staff";
+
+export interface AppUser {
+  id: string;
+  name: string;
+  username: string;
+  email?: string;
+  role: UserRole;
+  passwordHash: string;
+  createdAt: string;
+  updatedAt?: string;
+}
+
+export type SafeUser = Omit<AppUser, "passwordHash">;
+
 export interface DatabaseSchema {
   products: LadduProduct[];
   orders: CustomerOrder[];
   consultations: ConsultationBooking[];
+  users?: AppUser[];
 }

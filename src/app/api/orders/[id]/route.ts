@@ -7,7 +7,7 @@ export async function GET(
 ) {
   try {
     const { id } = await context.params;
-    const order = getOrderById(id);
+    const order = await getOrderById(id);
 
     if (!order) {
       return NextResponse.json({ success: false, error: "Order not found" }, { status: 404 });
@@ -32,7 +32,7 @@ export async function PATCH(
       return NextResponse.json({ success: false, error: "Status is required" }, { status: 400 });
     }
 
-    const updated = updateOrderStatus(id, status, note);
+    const updated = await updateOrderStatus(id, status, note);
     if (!updated) {
       return NextResponse.json({ success: false, error: "Order not found" }, { status: 404 });
     }

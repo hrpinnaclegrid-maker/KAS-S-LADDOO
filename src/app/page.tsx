@@ -588,7 +588,7 @@ export default function HomePage() {
             </h3>
             <p className="text-xs sm:text-sm text-ink-light leading-relaxed">
               12 assorted luxury laddus: Royal Almond Date, Sprouted Ragi Babool Gond, and Botanical Superseeds.
-              Presented in an imperial festive sleeve with Dr. Shams's Mindful Eating bookmark.
+              Presented in an imperial festive sleeve with Dr. Afroz's Mindful Eating bookmark.
             </p>
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start text-xs font-semibold text-forest-700">
               <span>✓ Corporate & Festive Gifting</span>

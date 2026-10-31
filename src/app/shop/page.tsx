@@ -13,6 +13,8 @@ import {
   SlidersHorizontal,
   ArrowRight,
   X,
+  FileText,
+  Download,
 } from "lucide-react";
 import { initialProducts } from "@/data/initialData";
 import { LadduProduct, ProductCategory } from "@/types";
@@ -80,11 +82,25 @@ export default function ShopPage() {
     <div className="py-10 sm:py-16 space-y-10">
       <Container>
         {/* Page Banner */}
-        <SectionHeader
-          label="Artisanal Kitchen Selection"
-          title="The Homemade Laddu Collection"
-          description="Carefully curated dry fruits, sprouted millets, and botanical seeds. Prepared fresh in small batches using pure A2 cow ghee and traditional wholesome recipes."
-        />
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <SectionHeader
+            label="Artisanal Kitchen Selection"
+            title="The Homemade Laddu Collection"
+            description="Carefully curated dry fruits, sprouted millets, and botanical seeds. Prepared fresh in small batches using pure A2 cow ghee and traditional wholesome recipes."
+          />
+          <div className="shrink-0 pb-2">
+            <a
+              href="/DR_KAS_SHOP_LADDUS_CATALOGUE.doc"
+              download="DR_KAS_SHOP_LADDUS_CATALOGUE.doc"
+              className="inline-flex items-center gap-2 bg-[#FAF6EE] hover:bg-[#F2E8D7] text-[#8A4B08] border border-[#E8DEC9] px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm group"
+              title="Download Microsoft Word Catalogue for offline review"
+            >
+              <FileText className="w-4 h-4 text-[#B45309] group-hover:scale-110 transition-transform" />
+              <span>Download Laddus Word File (.doc)</span>
+              <Download className="w-3.5 h-3.5 text-[#B45309]/70" />
+            </a>
+          </div>
+        </div>
 
         {/* Filter Controls Bar */}
         <div className="bg-white rounded-2xl p-5 border border-border-light shadow-sm space-y-4 animate-fade-in-up">

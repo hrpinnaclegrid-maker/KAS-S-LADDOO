@@ -3,7 +3,7 @@ import { getConsultations, createConsultation, updateConsultationStatus } from "
 
 export async function GET() {
   try {
-    const consultations = getConsultations();
+    const consultations = await getConsultations();
     return NextResponse.json({ success: true, count: consultations.length, consultations });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const booking = createConsultation({
+    const booking = await createConsultation({
       clientName,
       phone,
       email: email || "",
@@ -47,7 +47,7 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ success: false, error: "ID and status are required" }, { status: 400 });
     }
 
-    const updated = updateConsultationStatus(id, status);
+    const updated = await updateConsultationStatus(id, status);
     if (!updated) {
       return NextResponse.json({ success: false, error: "Consultation not found" }, { status: 404 });
     }

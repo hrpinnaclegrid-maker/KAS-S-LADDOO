@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, MessageCircle, Truck, Copy, X } from "lucide-react";
+import { CheckCircle2, Truck, Copy, X } from "lucide-react";
 import { CustomerOrder } from "@/types";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 interface OrderConfirmationModalProps {
   order: CustomerOrder | null;
@@ -102,10 +103,15 @@ Looking forward to my fresh homemade laddus! ✨`
             href={`https://wa.me/?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white py-3 rounded-xl font-semibold text-xs sm:text-sm shadow-sm transition-all"
+            className="w-full flex items-center justify-center space-x-2.5 py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-md transition-all active:translate-y-0 hover:-translate-y-0.5"
+            style={{
+              backgroundColor: "#25D366",
+              color: "#FFFFFF",
+              boxShadow: "0 4px 14px rgba(37, 211, 102, 0.35)",
+            }}
           >
-            <MessageCircle className="w-4 h-4" />
-            <span>Notify Kitchen on WhatsApp</span>
+            <WhatsAppIcon className="w-5 h-5 fill-white text-white shrink-0" />
+            <span style={{ color: "#FFFFFF" }}>Notify Kitchen on WhatsApp</span>
           </a>
 
           <button

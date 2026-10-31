@@ -27,6 +27,21 @@ const topics = [
     desc: "Address emotional cravings, mid-afternoon energy crashes, and mindful eating habits.",
   },
   {
+    id: "Organizational Psychology & Workplace Stress / Burnout",
+    title: "Organizational Psychology & Workplace Stress",
+    desc: "Address desk fatigue, executive burnout cycles, and establish sustainable cognitive routines during high-tempo work rhythms.",
+  },
+  {
+    id: "HRM & People-Centered Corporate Well-Being",
+    title: "HRM & Corporate Well-Being Advisory",
+    desc: "Guidance for HR leaders, founders, and teams on fostering supportive workplace health environments and human vitality.",
+  },
+  {
+    id: "Career Guidance, Habit Formation & Emotional Resilience",
+    title: "Career Transitions & Habit Coaching",
+    desc: "Integrative behavioural counselling for professionals navigating career transitions, situational discipline, and self-care.",
+  },
+  {
     id: "Family & Child Healthy Snacking Routine",
     title: "Family & Child Snacking Routine",
     desc: "Gently transition children and teens from ultra-processed packaged snacks to wholesome Indian foods.",
@@ -119,8 +134,8 @@ export default function ConsultPage() {
         <SectionHeader
           label="1-on-1 Guidance"
           icon={<HeartHandshake className="w-5 h-5 text-gold-600" />}
-          title="Book Nutritional Consultation"
-          description="Schedule a personalized session with <strong>Dr. Khan Afroz Shams</strong> to explore your relationship with food, overcome stress snacking, and create nourishing family habits."
+          title="Book Consultation with Dr. Afroz"
+          description="Schedule a personalized 1-on-1 session with <strong>Dr. Khan Afroz Shams</strong> (Ph.D. Organizational Psychology, MAHRM, Certified Nutritional Counsellor) bridging nutritional psychology, workplace wellness, and mindful family habits."
           align="center"
         />
 
@@ -139,7 +154,7 @@ export default function ConsultPage() {
                 Thank You, {confirmedBooking.clientName}!
               </h2>
               <p className="text-xs sm:text-sm text-ink-muted max-w-md mx-auto">
-                Dr. Shams's team will review your requested slot and message you on WhatsApp to confirm connection details.
+                Dr. Afroz's team will review your requested slot and message you on WhatsApp to confirm connection details.
               </p>
             </div>
 
@@ -276,7 +291,7 @@ export default function ConsultPage() {
               />
 
               <Textarea
-                label="Share any questions or dietary patterns you want Dr. Shams to review (Optional)"
+                label="Share any questions or dietary patterns you want Dr. Afroz to review (Optional)"
                 placeholder="e.g. I experience 4 PM sweet cravings during work sprints, looking for realistic habit swaps..."
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
@@ -285,9 +300,9 @@ export default function ConsultPage() {
             </Card>
 
             {/* Submit Button */}
-            <div className="pt-4 border-t border-border-light flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="pt-4 border-t border-border-light space-y-3">
               <div className="flex items-center gap-1.5 text-xs text-ink-muted">
-                <ShieldCheck className="w-4 h-4 text-emerald-600" aria-hidden="true" />
+                <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true" />
                 <span>Strictly Confidential Consultation</span>
               </div>
 
@@ -297,6 +312,7 @@ export default function ConsultPage() {
                 isLoading={loading}
                 leftIcon={loading ? null : <Calendar className="w-4 h-4 text-gold-300" />}
                 fullWidth={true}
+                className="w-full"
               >
                 {loading ? "Booking Session..." : "Schedule Appointment"}
               </Button>

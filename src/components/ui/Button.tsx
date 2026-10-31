@@ -32,15 +32,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 text-white shadow-gold hover:shadow-gold-lg hover:-translate-y-0.5 active:translate-y-0",
+        "bg-gradient-to-r from-[#B45309] via-[#C28833] to-[#8A3B05] !text-white text-white font-bold shadow-md hover:shadow-lg hover:from-[#9A4204] hover:via-[#B45309] hover:to-[#783002] hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm border border-amber-600/30",
       secondary:
-        "bg-white text-forest-700 border-2 border-forest-200 hover:bg-cream-warm hover:border-forest-500",
+        "bg-white !text-forest-700 text-forest-700 border-2 border-forest-200 hover:bg-cream-warm hover:border-forest-500 shadow-sm",
       ghost:
         "bg-transparent text-ink-500 hover:bg-surface-muted hover:text-ink-800",
       outline:
-        "bg-transparent text-gold-700 border-2 border-gold-600 hover:bg-gold-700 hover:text-white",
+        "bg-transparent text-gold-700 border-2 border-gold-600 hover:bg-gold-700 hover:!text-white hover:text-white",
       danger:
-        "bg-red-600 text-white hover:bg-red-700 shadow-red-600/30",
+        "bg-red-600 !text-white text-white hover:bg-red-700 shadow-red-600/30",
     };
 
     const sizeStyles = {

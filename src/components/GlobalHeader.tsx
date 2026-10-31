@@ -18,7 +18,7 @@ const navLinks = [
   { href: "/shop", label: "Shop Laddus", highlight: true },
   { href: "/philosophy", label: "Mind, Body & Soul", highlight: false },
   { href: "/generational-guide", label: "Generational Guide", highlight: false },
-  { href: "/founder", label: "Meet Dr. Shams", highlight: false },
+  { href: "/founder", label: "Meet Dr. Afroz", highlight: false },
   { href: "/consult", label: "Book Consultation", highlight: false },
 ] as const;
 
@@ -197,7 +197,7 @@ export default function GlobalHeader() {
               className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-forest text-white text-sm font-semibold shadow"
             >
               <HeartHandshake className="w-4 h-4 text-gold-300" aria-hidden="true" />
-              <span>Book Consultation with Dr. Shams</span>
+              <span>Book Consultation with Dr. Afroz</span>
             </Link>
           </div>
         )}

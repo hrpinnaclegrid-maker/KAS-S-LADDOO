@@ -12,6 +12,7 @@
   --color-ink-muted: #7c6a53;
   --color-ink-subtle: #8c7a65;
   --color-gold: #c28833;
+  --color-gold-500: #d4a03c;
   --color-gold-600: #c28833;
   --color-gold-700: #92400e;
   --color-gold-light: #d4af37;
@@ -374,8 +375,12 @@ h4, h5, h6 {
 }
 
 .bg-forest p,
-.bg-forest-deep p {
-  color: #dde9e0;
+.bg-forest-deep p,
+.text-white p,
+[class*="text-white"] p,
+[class*="bg-[#1C3D2B]"] p,
+[class*="from-[#1C3D2B]"] p {
+  color: inherit;
 }
 
 /* Keep every major homepage block visually separated. */

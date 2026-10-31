@@ -69,7 +69,7 @@ export default function Footer({
               <li><a href="#products" className="hover:text-amber-300 transition-colors">Laddu Collection</a></li>
               <li><a href="#philosophy" className="hover:text-amber-300 transition-colors">Our Philosophy</a></li>
               <li><a href="#generational" className="hover:text-amber-300 transition-colors">Generational Guide</a></li>
-              <li><a href="#founder" className="hover:text-amber-300 transition-colors">Meet Dr. Shams</a></li>
+              <li><a href="#founder" className="hover:text-amber-300 transition-colors">Meet Dr. Afroz</a></li>
             </ul>
           </div>
 

@@ -16,6 +16,7 @@ import {
   User,
   MapPin,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { CustomerOrder, OrderStatus } from "@/types";
 import { Container, Section, SectionHeader, Button, Card, Badge, Input } from "@/components/ui";
 
@@ -212,9 +213,9 @@ function TrackOrderContent() {
                   href={`https://wa.me/?text=${encodeURIComponent(`Namaste Dr. KAS'S! I have a question regarding my order #${order.id}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 text-green-600 font-bold hover:underline"
+                  className="inline-flex items-center gap-2 text-[#128C7E] hover:text-[#075E54] font-bold"
                 >
-                  <MessageCircle className="w-4 h-4" aria-hidden="true" />
+                  <WhatsAppIcon className="w-4 h-4 fill-[#25D366] shrink-0" />
                   <span>Message Kitchen Desk on WhatsApp</span>
                 </a>
               </div>

@@ -13,7 +13,10 @@ import {
   Sun,
   ShieldCheck,
   Coffee,
-  Activity
+  Activity,
+  Flame,
+  Snowflake,
+  ShieldAlert
 } from "lucide-react";
 import InteractiveChakraWheel from "@/components/InteractiveChakraWheel";
 
@@ -250,6 +253,79 @@ export default function PhilosophyPage() {
           </div>
         </div>
 
+        {/* Seasonal Nutrition Bites: Summer & Winter Specials */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E8DEC9] shadow-sm space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center space-x-1.5 text-xs font-bold uppercase tracking-widest text-[#B45309] bg-amber-100 px-3 py-1 rounded-full">
+              <Sun className="w-3.5 h-3.5 text-amber-600" />
+              <span>Living in Rhythm With Nature</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#27211A]">
+              Seasonal Nutrition Bites: Summer &amp; Winter Specials
+            </h2>
+            <p className="text-xs sm:text-sm text-[#6B5A47] leading-relaxed">
+              Dr. KAS’S seasonal laddu range is inspired by the changing seasons and the everyday role of food, routine, rest, hydration, and balanced nutrition in well-being. Living in rhythm with the environment and the body's daily clock is our guiding brand inspiration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Winter Special */}
+            <div className="bg-gradient-to-br from-[#FFF9F2] to-[#FAF3E8] rounded-2xl p-6 sm:p-8 border border-amber-200/80 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-200/70 px-3 py-1 rounded-full">
+                  <Flame className="w-3.5 h-3.5 text-amber-700" />
+                  <span>Winter Special</span>
+                </span>
+                <span className="text-xs font-semibold text-amber-800">Warming &amp; Grounding</span>
+              </div>
+              <h3 className="font-serif font-bold text-xl text-[#27211A]">
+                Ginger, Sesame &amp; Walnut Nutrition Bite
+              </h3>
+              <p className="text-xs sm:text-sm text-[#5C4D3D] leading-relaxed">
+                A rich, aromatic bite made with dates, walnuts, almonds, sesame seeds, coconut, and gentle ginger and cardamom. The warming flavour profile suits the winter season and offers another way to enjoy ingredients that contribute energy and nutrients within a balanced diet.
+              </p>
+              <div className="pt-2 border-t border-amber-200/60 flex flex-wrap gap-2 text-[11px] font-semibold text-amber-900">
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Warming Ginger</span>
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Calcium-Rich White Til</span>
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Brain-Nourishing Walnuts</span>
+              </div>
+            </div>
+
+            {/* Summer Special */}
+            <div className="bg-gradient-to-br from-[#F0FBF5] to-[#E5F5EC] rounded-2xl p-6 sm:p-8 border border-emerald-200/80 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-900 bg-emerald-200/70 px-3 py-1 rounded-full">
+                  <Snowflake className="w-3.5 h-3.5 text-emerald-700" />
+                  <span>Summer Special</span>
+                </span>
+                <span className="text-xs font-semibold text-emerald-800">Cooling &amp; Refreshing</span>
+              </div>
+              <h3 className="font-serif font-bold text-xl text-[#27211A]">
+                Coconut, Mint &amp; Lime Nutrition Bite
+              </h3>
+              <p className="text-xs sm:text-sm text-[#446252] leading-relaxed">
+                A bright, tropical-inspired bite made with dates, shredded coconut, almonds, cashews, a hint of fresh lime zest, and soothing dried mint. Its clean, vibrant flavour profile is crafted for summer lightness alongside adequate water and balanced meals.
+              </p>
+              <div className="pt-2 border-t border-emerald-200/60 flex flex-wrap gap-2 text-[11px] font-semibold text-emerald-900">
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Fresh Coconut</span>
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Zesty Lime</span>
+                <span className="bg-white/80 px-2 py-0.5 rounded-md">✓ Cooling Spearmint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Nutrition & Brand Integrity Disclaimer */}
+        <div className="bg-[#FAF6EE] rounded-2xl p-6 sm:p-8 border border-[#E8DEC9] space-y-3">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#7C6A53]">
+            <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
+            <span>Nutrition &amp; Brand Integrity • Product and Health-Claim Note</span>
+          </div>
+          <p className="text-xs text-[#5C4D3D] leading-relaxed">
+            The nutritional contribution of each laddu depends on the actual ingredients, recipe, portion size, and preparation method. Before using this profile on packaging or in advertising, any use of the term “organic” complies with applicable labelling guidelines. Allergens such as tree nuts and sesame are fully disclosed. These general statements are not intended to diagnose, treat, or prevent disease. People with specific dietary needs should seek appropriate advice from a qualified healthcare professional.
+          </p>
+        </div>
+
         {/* 7-Chakra Interactive Component */}
         <InteractiveChakraWheel />
 
@@ -260,7 +336,7 @@ export default function PhilosophyPage() {
           </h3>
           <p className="text-xs sm:text-sm text-[#C8DBD0] max-w-xl mx-auto">
             Explore our doctor-curated collection of dry fruit and sprouted millet laddus, or book a personalized 
-            nutritional psychology consultation with Dr. Shams.
+            nutritional psychology consultation with Dr. Afroz.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link

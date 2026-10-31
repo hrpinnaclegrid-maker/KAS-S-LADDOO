@@ -18,6 +18,7 @@ import {
   Phone,
   CreditCard,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { useCart } from "@/context/CartContext";
 import { CustomerOrder } from "@/types";
 import { Container, Section, Button, Input, Textarea, Card, CardContent, Badge } from "@/components/ui";
@@ -171,10 +172,15 @@ export default function CheckoutPage() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-sm transition-all"
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-2xl font-bold text-xs sm:text-sm shadow-md transition-all active:translate-y-0 hover:-translate-y-0.5"
+                style={{
+                  backgroundColor: "#25D366",
+                  color: "#FFFFFF",
+                  boxShadow: "0 4px 14px rgba(37, 211, 102, 0.35)",
+                }}
               >
-                <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                <span>Confirm on WhatsApp</span>
+                <WhatsAppIcon className="w-5 h-5 fill-white text-white shrink-0" />
+                <span style={{ color: "#FFFFFF" }}>Confirm on WhatsApp</span>
               </a>
 
               <Link

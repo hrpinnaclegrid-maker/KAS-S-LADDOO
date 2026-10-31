@@ -617,12 +617,17 @@
       "paymentMethod": "upi",
       "orderNotes": "",
       "id": "KAS-9466",
-      "status": "Received",
+      "status": "Dispatched",
       "statusHistory": [
         {
           "status": "Received",
           "timestamp": "2026-10-24T07:28:50.733Z",
           "note": "Order received by Dr. KAS’s kitchen"
+        },
+        {
+          "status": "Dispatched",
+          "timestamp": "2026-10-31T07:20:24.031Z",
+          "note": "Status marked as Dispatched in kitchen portal"
         }
       ],
       "createdAt": "2026-10-24T07:28:50.733Z"
@@ -648,12 +653,17 @@
       "paymentMethod": "upi",
       "orderNotes": "Deliver with care",
       "id": "KAS-5053",
-      "status": "Received",
+      "status": "Dispatched",
       "statusHistory": [
         {
           "status": "Received",
           "timestamp": "2026-10-20T13:37:07.163Z",
           "note": "Order received by Dr. KAS’s kitchen"
+        },
+        {
+          "status": "Dispatched",
+          "timestamp": "2026-10-31T07:20:27.076Z",
+          "note": "Status marked as Dispatched in kitchen portal"
         }
       ],
       "createdAt": "2026-10-20T13:37:07.163Z"
@@ -726,7 +736,7 @@
       "totalAmount": 2670,
       "paymentMethod": "upi",
       "orderNotes": "Corporate gift packing with Dr. KAS note cards.",
-      "status": "Preparing",
+      "status": "Dispatched",
       "statusHistory": [
         {
           "status": "Received",
@@ -737,6 +747,11 @@
           "status": "Preparing",
           "timestamp": "2026-10-20T11:30:00.000Z",
           "note": "Fresh ingredients being ground and shaped"
+        },
+        {
+          "status": "Dispatched",
+          "timestamp": "2026-10-31T07:20:28.720Z",
+          "note": "Status marked as Dispatched in kitchen portal"
         }
       ],
       "createdAt": "2026-10-20T08:00:00.000Z"

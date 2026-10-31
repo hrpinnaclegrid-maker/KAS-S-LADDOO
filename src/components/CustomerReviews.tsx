@@ -38,7 +38,7 @@ export default function CustomerReviews() {
       rating: 5,
       product: "Kashmiri Walnut & Pistachio Brain Vitality",
       comment:
-        "Clean, guilt-free cognitive energy before long commercial flights. Knowing Dr. Shams's background in aviation operations gives so much reassurance in the food safety and precision of these recipes.",
+        "Clean, guilt-free cognitive energy before long commercial flights. Knowing Dr. Afroz's background in aviation operations gives so much reassurance in the food safety and precision of these recipes.",
       verified: true
     }
   ];

@@ -108,7 +108,7 @@ export default function FounderSection({ onBookConsultation }: FounderSectionPro
                   className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#C28833] to-[#996515] hover:from-[#B37825] hover:to-[#7A500D] text-white px-6 py-2.5 rounded-xl font-semibold text-xs sm:text-sm shadow-sm transition-all"
                 >
                   <HeartHandshake className="w-4 h-4" />
-                  <span>Book Consultation with Dr. KAS</span>
+                  <span>Book Consultation with Dr. Afroz</span>
                 </button>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function FounderSection({ onBookConsultation }: FounderSectionPro
                 </p>
                 <p>
                   With an academic foundation in organizational psychology and nutritional counselling, 
-                  Dr. Shams takes an integrated, human-centric view of well-being—recognizing that physical 
+                  Dr. Afroz takes an integrated, human-centric view of well-being—recognizing that physical 
                   nourishment, daily routines, emotional awareness, and supportive environments all 
                   intertwine in how people care for themselves.
                 </p>

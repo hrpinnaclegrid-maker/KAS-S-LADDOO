@@ -271,7 +271,7 @@ export default function AdminDashboardModal({
                   Consultation Requests
                 </span>
                 <div className="text-2xl font-serif font-bold text-[#1C3D2B]">{pendingConsultations}</div>
-                <span className="text-[10px] text-[#7C6A53]">Awaiting Dr. Shams review</span>
+                <span className="text-[10px] text-[#7C6A53]">Awaiting Dr. Afroz review</span>
               </div>
             </div>
 

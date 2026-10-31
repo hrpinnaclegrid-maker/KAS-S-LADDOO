@@ -158,22 +158,29 @@ export default function ProductDetailModal({
         </div>
 
         {/* Modal Bottom Footer / Add to Bag */}
-        <div className="bg-cream-warm p-4 sm:p-6 border-t border-border-light flex items-center justify-between">
-          <div>
-            <span className="text-xs text-ink-muted">{product.weight}</span>
-            <div className="text-2xl font-serif font-bold text-ink-dark">₹{product.price}</div>
-          </div>
+        <div className="bg-cream-warm p-4 sm:p-6 border-t border-border-light">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="shrink-0">
+              <span className="text-xs text-ink-muted">{product.weight}</span>
+              <div className="text-2xl font-serif font-bold text-ink-dark">₹{product.price}</div>
+            </div>
 
-          <Button
-            size="lg"
-            onClick={() => {
-              onAddToCart(product);
-              onClose();
-            }}
-            leftIcon={<ShoppingBag className="w-4 h-4" />}
-          >
-            Add to Bag (₹{product.price})
-          </Button>
+            <button
+              onClick={() => {
+                onAddToCart(product);
+                onClose();
+              }}
+              className="w-full sm:flex-1 py-3.5 px-6 rounded-2xl font-bold text-sm tracking-wide text-white transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg active:translate-y-0 hover:-translate-y-0.5 cursor-pointer"
+              style={{
+                background: "linear-gradient(135deg, #B45309 0%, #C28833 50%, #8A3B05 100%)",
+                color: "#FFFFFF",
+                boxShadow: "0 4px 14px rgba(180, 83, 9, 0.35)",
+              }}
+            >
+              <ShoppingBag className="w-4 h-4 text-white" />
+              <span style={{ color: "#FFFFFF" }}>Add to Bag &mdash; ₹{product.price}</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

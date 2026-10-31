@@ -59,7 +59,7 @@ export default function FooterWrapper() {
               <li><Link href="/shop" className="hover:text-gold-300 transition-colors">Shop Laddus</Link></li>
               <li><Link href="/philosophy" className="hover:text-gold-300 transition-colors">Mind, Body & Soul</Link></li>
               <li><Link href="/generational-guide" className="hover:text-gold-300 transition-colors">Generational Guide</Link></li>
-              <li><Link href="/founder" className="hover:text-gold-300 transition-colors">Meet Dr. Shams</Link></li>
+              <li><Link href="/founder" className="hover:text-gold-300 transition-colors">Meet Dr. Afroz</Link></li>
             </ul>
           </div>
 

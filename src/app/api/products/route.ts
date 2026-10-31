@@ -7,7 +7,7 @@ export async function GET(request: Request) {
     const category = searchParams.get("category");
     const audience = searchParams.get("audience");
 
-    let products = getProducts();
+    let products = await getProducts();
 
     if (category && category !== "all") {
       products = products.filter((p) => p.category === category);
@@ -37,7 +37,7 @@ export async function PUT(request: Request) {
       );
     }
 
-    const updated = updateProduct(id, updates);
+    const updated = await updateProduct(id, updates);
     if (!updated) {
       return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
     }
@@ -51,10 +51,15 @@ export async function PUT(request: Request) {
 export async function POST(request: Request) {
   try {
     const product = await request.json();
-    if (!product?.id || !product?.name || !product?.price) {
-      return NextResponse.json({ success: false, error: "id, name, and price are required" }, { status: 400 });
+    if (!product?.name || !product?.price) {
+      return NextResponse.json({ success: false, error: "Product name and price are required" }, { status: 400 });
     }
-    return NextResponse.json({ success: true, product: createProduct(product) }, { status: 201 });
+    if (!product.id) {
+      const slug = product.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      product.id = `kas-${slug || "product"}-${Math.floor(100 + Math.random() * 900)}`;
+    }
+    const created = await createProduct(product);
+    return NextResponse.json({ success: true, product: created }, { status: 201 });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
@@ -64,7 +69,8 @@ export async function DELETE(request: Request) {
   try {
     const id = new URL(request.url).searchParams.get("id");
     if (!id) return NextResponse.json({ success: false, error: "Product id is required" }, { status: 400 });
-    if (!deleteProduct(id)) return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+    const deleted = await deleteProduct(id);
+    if (!deleted) return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
     return NextResponse.json({ success: true, id });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

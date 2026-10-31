@@ -27,6 +27,9 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
   const topics = [
     "Nutritional Psychology & Mindful Snacking Habits",
+    "Organizational Psychology & Workplace Stress / Burnout",
+    "HRM & People-Centered Corporate Well-Being Advisory",
+    "Career Guidance, Habit Formation & Emotional Resilience",
     "Family & Child Healthy Snacking Routine",
     "Women's Life-Stage Nourishment (Postnatal / Hormonal)",
     "Men's Vitality, Energy & Workout Nutrition",
@@ -168,7 +171,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             )}
 
             <div className="bg-[#FAF6EE] p-3 rounded-xl border border-[#E8DFC9] text-xs text-[#5C4D3D]">
-              👩‍⚕️ <strong>Consultation with Dr. Khan Afroz Shams:</strong> An integrative session on mindful food choices, emotional relationship with eating, and sustainable family snacking habits.
+              👩‍⚕️ <strong>Consultation with Dr. Khan Afroz Shams:</strong> An integrative session bridging organizational psychology, workplace stress management, mindful eating, and sustainable family snacking habits.
             </div>
 
             {/* Name & Phone */}
@@ -269,7 +272,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             {/* Health Goals / Notes */}
             <div>
               <label className="block text-xs font-semibold text-[#4A3E31] mb-1">
-                What would you like to discuss with Dr. Shams? (Optional)
+                What would you like to discuss with Dr. Afroz? (Optional)
               </label>
               <textarea
                 rows={2}

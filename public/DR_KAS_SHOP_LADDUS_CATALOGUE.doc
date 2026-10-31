@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+<meta charset='utf-8'>
+<title>Dr. KAS'S Homemade Laddu Collection - Shop Product Catalogue</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+  @page {
+    size: 21.0cm 29.7cm;
+    margin: 2cm 2cm 2cm 2cm;
+    mso-page-orientation: portrait;
+  }
+  body {
+    font-family: 'Georgia', 'Calibri', 'Times New Roman', serif;
+    color: #2D261E;
+    line-height: 1.5;
+    background-color: #FFFFFF;
+  }
+  .header {
+    text-align: center;
+    border-bottom: 2px solid #C28833;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .company {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #1C3D2B;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .brand-title {
+    font-size: 22pt;
+    font-weight: bold;
+    color: #8A4B08;
+    margin: 4px 0;
+  }
+  .brand-subtitle {
+    font-size: 14pt;
+    font-style: italic;
+    color: #C28833;
+    margin-bottom: 4px;
+  }
+  .brand-tagline {
+    font-size: 10pt;
+    color: #5C4D3D;
+  }
+  .founder-banner {
+    background-color: #FAF6EE;
+    border: 1px solid #E8DEC9;
+    border-left: 5px solid #1C3D2B;
+    padding: 14px 18px;
+    margin-bottom: 26px;
+    font-size: 10pt;
+  }
+  .product-box {
+    border: 1px solid #D8CDB8;
+    margin-bottom: 24px;
+    page-break-inside: avoid;
+    background-color: #FFFFFF;
+  }
+  .product-header {
+    background-color: #1C3D2B;
+    color: #FFFFFF;
+    padding: 10px 16px;
+  }
+  .product-title {
+    font-size: 13pt;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0;
+  }
+  .product-hindi {
+    font-size: 10pt;
+    color: #E5C378;
+    margin-top: 2px;
+  }
+  .product-body {
+    padding: 14px 18px;
+    font-size: 10pt;
+  }
+  .tagline-pill {
+    background-color: #FFF9F0;
+    border-left: 3px solid #C28833;
+    padding: 4px 10px;
+    font-size: 9.5pt;
+    font-weight: bold;
+    color: #8A4B08;
+    margin-bottom: 10px;
+  }
+  .section-heading {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #1C3D2B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+  ul {
+    margin-top: 3px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+  }
+  li {
+    margin-bottom: 2px;
+  }
+  table.nutri-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    font-size: 9pt;
+  }
+  table.nutri-table th {
+    background-color: #FAF6EE;
+    border: 1px solid #D8CDB8;
+    padding: 6px 8px;
+    text-align: left;
+    color: #1C3D2B;
+    font-weight: bold;
+  }
+  table.nutri-table td {
+    border: 1px solid #E8DEC9;
+    padding: 6px 8px;
+  }
+  .pricing-bar {
+    background-color: #FAF6EE;
+    border: 1px solid #E8DEC9;
+    padding: 8px 14px;
+    font-weight: bold;
+    font-size: 10.5pt;
+    color: #8A4B08;
+    margin-top: 10px;
+  }
+  .footer {
+    text-align: center;
+    border-top: 1px solid #D8CDB8;
+    padding-top: 16px;
+    margin-top: 36px;
+    font-size: 9pt;
+    color: #6B5A47;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="company">KAS Nourish &amp; Nurture Foods</div>
+  <div class="brand-title">DR. KAS'S HOMEMADE LADDU COLLECTION</div>
+  <div class="brand-subtitle">Healing Mind, Body &amp; Soul</div>
+  <div class="brand-tagline">Nourishing the Body. Nurturing the Mind. Inspiring Inner Harmony.</div>
+  <div style="font-size: 10pt; color: #1C3D2B; margin-top: 6px;">
+    A Wellness-Inspired Food Brand by <strong>Dr. Khan Afroz Shams</strong>
+  </div>
+</div>
+
+<div class="founder-banner">
+  <p style="margin: 0 0 6px 0; font-weight: bold; color: #1C3D2B; font-size: 10.5pt;">Our Brand Vision &amp; Philosophy:</p>
+  <p style="margin: 0 0 6px 0; font-style: italic;">
+    "At Dr. KAS'S, we bring together thoughtfully selected ingredients—including dry fruits and millets in selected recipes—the pleasure of satisfying taste, and a passion for holistic well-being. We believe that caring for ourselves can begin with small, everyday choices, and that wholesome food can make those choices more enjoyable."
+  </p>
+  <p style="margin: 0; font-size: 9.5pt; color: #5C4D3D;">
+    <strong>Vision:</strong> To build a trusted wellness-inspired food brand that brings together traditional goodness, delightful taste, and mindful nutrition—making everyday nourishment a meaningful part of a healthier, more balanced life.<br/>
+    <strong>Mission:</strong> To offer thoughtfully prepared homemade laddus that celebrate flavour and traditional food practices, while inspiring individuals and families to explore nutritious snack choices and develop healthier eating habits.
+  </p>
+</div>
+
+<h2 style="color: #1C3D2B; font-size: 15pt; border-bottom: 2px solid #C28833; padding-bottom: 4px; margin-top: 24px;">
+  Complete Shop Laddu Catalogue &amp; Nutritional Formulations
+</h2>
+<p style="font-size: 9.5pt; color: #6B5A47; margin-bottom: 18px;">
+  100% Homemade • Handmade with Pure Desi Cow Ghee • Zero Artificial Sweetener • No Processed Sugar
+</p>
+
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">1. Royal Nut Delight — Royal Date, Almond & Pistachio Laddu</div>
+    <div class="product-hindi">बादाम और खजूर लड्डू • Dry Fruits Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Natural Sustained Energy • No Refined Sugar</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Handcrafted with premium Mamra California almonds, Arabian dates, cashew bits, and pure A2 cow ghee. Naturally sweetened with soft dates without a single grain of processed sugar.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>California & Mamra Almonds (40%)</li><li>Soft Arabian Dates (35%)</li><li>Whole Cashew Kernels (15%)</li><li>Pure Desi Cow Ghee (8%)</li><li>Green Cardamom & Nutmeg (2%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Natural energy boost for busy workdays and active lifestyles</li><li>High in monounsaturated healthy fats and Vitamin E</li><li>Dietary fiber supporting smooth digestion and satiety</li><li>Heart-conscious and kid-friendly natural sweetness</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>158 kcal</strong></td>
+          <td>4.8g</td>
+          <td>8.6g</td>
+          <td>3.1g</td>
+          <td>Natural Arabian Dates (Zero Refined Sugar)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹520 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in a cool, airtight glass container. Stays fresh for up to 30 days at room temperature.<br/>
+      <strong>Allergen Notice:</strong> Contains tree nuts (almonds, cashews) and dairy (desi ghee).
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">2. Kashmiri Walnut & Pistachio Brain Vitality Laddu</div>
+    <div class="product-hindi">अखरोट और पिस्ता मेधा लड्डू • Dry Fruits Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Omega-3 Rich • Cognitive Nourishment & Mindful Snacking</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Thoughtfully balanced with brain-shaped Kashmiri walnuts, Iranian green pistachios, melon seeds, and fragrant wild cardamom bound with raw black figs and unpasteurized raw honey.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Kashmiri Snow Walnut Halves (35%)</li><li>Green Pistachio Kernels (25%)</li><li>Sun-dried Black Fig Mash (25%)</li><li>Melon & Pumpkin Seeds (10%)</li><li>Desi Gir Cow Ghee & Saffron Strands (5%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Rich in plant-based Omega-3 ALA supporting cognitive wellness</li><li>Ideal midday brain fuel for studying students and desk professionals</li><li>Nutrient-dense minerals including magnesium, copper, and manganese</li><li>Mindful snacking for emotional balance and focus</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>165 kcal</strong></td>
+          <td>5.2g</td>
+          <td>10.2g</td>
+          <td>3.4g</td>
+          <td>Sun-dried Black Figs & Wild Honey hint</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹590 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store away from direct sunlight. Refrigeration recommended in summer for extra crunch.<br/>
+      <strong>Allergen Notice:</strong> Contains walnuts and pistachios. May contain traces of other nuts.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">3. Anjeer Harmony — Anjeer, Walnut & Almond Laddu</div>
+    <div class="product-hindi">काजू और अंजीर अमृत लड्डू • Dry Fruits Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Natural Iron & Calcium • Delicate Crunchy Fig Texture</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Rich Turkish sun-dried figs slow-simmered and blended with hand-broken roasted cashews and toasted sesame. A sensory delight with the distinctive crunch of real fig seeds.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Sun-ripened Dried Figs / Anjeer (45%)</li><li>Roasted W240 Cashew Nuts (35%)</li><li>Roasted Golden Sesame Seeds (10%)</li><li>Pure Desi Cow Ghee (8%)</li><li>Green Cardamom Powder (2%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Natural dietary fiber supporting healthy gut motility and digestive harmony</li><li>Provides natural plant-derived iron, calcium, and potassium</li><li>Excellent nourishing snack during pregnancy, postpartum, and mature adulthood</li><li>Naturally sweet with zero added sugar or syrups</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>152 kcal</strong></td>
+          <td>3.9g</td>
+          <td>7.6g</td>
+          <td>4.2g</td>
+          <td>100% Sun-Dried Fig Pulp (No Sugar Added)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹540 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Keep sealed in an airtight box. Best consumed within 3 weeks.<br/>
+      <strong>Allergen Notice:</strong> Contains cashews and sesame seeds.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">4. Sprouted Ragi & Babool Gond Strength Laddu</div>
+    <div class="product-hindi">अंकुरित रागी और गोंद पुष्टि लड्डू • Millet & Grain Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Calcium Powerhouse • Joint Support & Postnatal Vitality</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Sprouted finger millet (Ragi) slow-roasted in desi cow ghee with puffed babool gond (edible gum), almonds, melon seeds, and organic unrefined jaggery.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Sprouted Finger Millet / Ragi Flour (35%)</li><li>Puffed Edible Babool Gond (15%)</li><li>Crushed Almonds & Walnuts (20%)</li><li>Organic Kolhapuri Jaggery (18%)</li><li>Pure Desi Cow Ghee (10%)</li><li>Dry Ginger (Sonth) & Nutmeg (2%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Extremely rich in natural bioavailable calcium for bone and joint support</li><li>Edible gond provides traditional deep joint lubrication and body warmth</li><li>Traditional postpartum and lactation nourishment for new mothers</li><li>Low glycemic millet providing long-lasting metabolic energy</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>148 kcal</strong></td>
+          <td>3.7g</td>
+          <td>6.2g</td>
+          <td>3.9g</td>
+          <td>Organic Unrefined Jaggery (Gur)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹460 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Keep in a cool dry pantry. Up to 45 days shelf life.<br/>
+      <strong>Allergen Notice:</strong> Contains tree nuts (almonds) and dairy (ghee).
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">5. Winter Warmth Bajra & White Til Laddu</div>
+    <div class="product-hindi">बाजरा और तिल स्निग्ध लड्डू • Millet & Grain Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Traditional Warmth • Rich in Iron, Zinc & Healthy Fats</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Slow-toasted pearl millet (Bajra) combined with high-grade roasted white sesame seeds (Til), roasted peanuts, and dark sugarcane jaggery. A heartwarming heritage winter recipe.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Stone-ground Pearl Millet / Bajra (35%)</li><li>Roasted White Sesame Seeds (25%)</li><li>Hand-crushed Roasted Peanuts (15%)</li><li>Organic Sugarcane Jaggery (15%)</li><li>Pure Desi Cow Ghee (8%)</li><li>Black Pepper & Cardamom (2%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>High natural zinc and iron content supporting immunity and hemoglobin</li><li>Sesame provides essential fatty acids and natural calcium</li><li>Provides thermogenic warmth and comfort during cool seasons or morning fatigue</li><li>Wholesome traditional snacking to replace processed biscuits</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>154 kcal</strong></td>
+          <td>4.5g</td>
+          <td>7.2g</td>
+          <td>3.6g</td>
+          <td>Pure Organic Sugarcane Jaggery</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹420 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in a dry cool place. Keep lid tightly closed.<br/>
+      <strong>Allergen Notice:</strong> Contains peanuts and sesame seeds.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">6. Sorghum Jowar & Green Cardamom Balance Laddu</div>
+    <div class="product-hindi">ज्वार और इलायची संतुलन लड्डू • Millet & Grain Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Gluten-Free Millet • Easy Digestion & Light Refreshment</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Gentle roasted Sorghum (Jowar) flour, aromatic Idukki green cardamom, crushed almonds, and organic Khandsari raw sugar. Wonderfully light and easy on sensitive digestive systems.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Roasted Sorghum / Jowar Flour (40%)</li><li>Almond & Pistachio Flakes (20%)</li><li>Traditional Khandsari Raw Cane Sugar (20%)</li><li>Pure Desi Cow Ghee (18%)</li><li>Green Cardamom & Mace (2%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Light and gentle on the stomach; excellent for mindful afternoon snacking</li><li>Naturally gluten-free grain with complex carbohydrates</li><li>Cardamom aids digestion and imparts a peaceful culinary aroma</li><li>Appeals naturally to children transitioning to millet foods</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>142 kcal</strong></td>
+          <td>3.4g</td>
+          <td>6g</td>
+          <td>2.8g</td>
+          <td>Raw Khandsari Sugar (Unbleached)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹440 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store at room temperature in a dry container. Shelf life 30 days.<br/>
+      <strong>Allergen Notice:</strong> Contains almonds, pistachios, and dairy.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">7. Seven-Seed Botanical Wellness Laddu</div>
+    <div class="product-hindi">सप्त-बीज आरोग्य लड्डू • Specialty Wellness Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Superseed Medley • Zinc, Magnesium & Plant Micronutrients</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">A doctor-formulated blend of 7 powerhouse seeds: Pumpkin, Sunflower, Flax, Chia, White Sesame, Black Sesame, and Watermelon seeds, gently bound with dates and cold-pressed coconut oil.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Pumpkin Seeds (15%)</li><li>Sunflower Seeds (15%)</li><li>Roasted Flax Seeds (15%)</li><li>Watermelon & Melon Seeds (15%)</li><li>Chia & Black/White Sesame Seeds (10%)</li><li>Black Date Pulp (22%)</li><li>Cold-Pressed Coconut Oil & Cow Ghee (8%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Comprehensive micronutrient spectrum: magnesium, zinc, selenium & folate</li><li>Plant lignans and healthy fatty acids supporting hormonal and cardiovascular balance</li><li>No grains or flours — purely whole seeds and dates</li><li>Crunchy, satisfying texture that curtails processed snack cravings</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>168 kcal</strong></td>
+          <td>5.8g</td>
+          <td>11.2g</td>
+          <td>4.8g</td>
+          <td>Natural Date Pulp Only</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹560 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in a cool dry airtight tin. Keep refrigerated in high humidity.<br/>
+      <strong>Allergen Notice:</strong> Contains multiple seeds (flax, sesame, chia, pumpkin, sunflower). Free from peanuts.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">8. Heritage Besan & Sprouted Methi Digestive Laddu</div>
+    <div class="product-hindi">बेसन और अंकुरित मेथी पाचक लड्डू • Specialty Wellness Collection</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Digestive Comfort • Gentle Herbals & Slow-Roasted Gram</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">Coarsely milled Bengal gram flour slow-roasted in pure ghee with micro-quantities of debittered sprouted fenugreek, carom seeds (ajwain), and organic jaggery.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Coarse Roasted Bengal Gram / Besan (45%)</li><li>Debittered Sprouted Methi Powder (5%)</li><li>Pure Desi Cow Ghee (25%)</li><li>Organic Kolhapuri Jaggery (20%)</li><li>Carom Seeds (Ajwain) & Cardamom (5%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Fenugreek and carom provide traditional herbal comfort for digestion and metabolism</li><li>Supports stable glycemic response when consumed mindfully in moderation</li><li>Nourishing winter and postpartum staple passed down through generations</li><li>Melt-in-mouth roasted texture with gentle aromatic spices</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (35g)</td>
+          <td><strong>156 kcal</strong></td>
+          <td>4.2g</td>
+          <td>7.8g</td>
+          <td>3.2g</td>
+          <td>Kolhapuri Organic Jaggery</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹440 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 400g (Box of 10-12 laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in an airtight glass or steel jar. Shelf life 40 days.<br/>
+      <strong>Allergen Notice:</strong> Contains legumes (besan) and dairy (desi ghee).
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">9. Dr. KAS Signature Chakra Harmony Gift Box</div>
+    <div class="product-hindi">डॉ. कास चक्र संतुलन उपहार पेटी • Curated Gift Collections</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Tri-Dosha Balance • Beautiful Festive & Corporate Gifting</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">An elegant, wellness-themed presentation box containing 4 Royal Almond Date Laddus, 4 Sprouted Ragi Babool Gond Laddus, and 4 Seven-Seed Botanical Laddus. Accompanied by Dr. KAS’s Mindful Eating Guide and Chakra Symbolism Card.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Assorted: California Almonds, Arabian Dates, Sprouted Ragi, Babool Gond, 7 Botanical Seeds, Desi Cow Ghee, Pure Jaggery</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Complete wellness spectrum: Mind (Almond-Date), Body (Ragi Gond), Soul (Superseed)</li><li>Thoughtful gift for festivals, corporate wellness, baby showers, and family celebrations</li><li>Includes Dr. Khan Afroz Shams's Mindful Eating bookmark with portion suggestions</li><li>100% wholesome homemade goodness free from artificial additives</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Laddu (Avg 35g)</td>
+          <td><strong>158 kcal</strong></td>
+          <td>4.8g</td>
+          <td>8.7g</td>
+          <td>3.8g</td>
+          <td>Natural Dates & Organic Jaggery</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹890 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 600g (Box of 12 Assorted Laddus) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in a cool dry location. Beautiful gift sleeve packaging.<br/>
+      <strong>Allergen Notice:</strong> Contains almonds, cashews, assorted seeds, and dairy.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">10. Winter Special — Ginger, Sesame & Walnut Nutrition Bite</div>
+    <div class="product-hindi">शीतकालीन विशेष — अदरक, तिल और अखरोट पोषण बाइट • Seasonal Nutrition Bites</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Warming Winter Flavour • Dates, Walnuts, Sesame & Ginger</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">A rich, aromatic bite made with dates, walnuts, almonds, sesame, coconut, and gentle ginger and cardamom. The warming flavour profile suits the winter season and offers another way to enjoy ingredients that contribute energy and nutrients within a balanced diet.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Dates (30%)</li><li>Walnuts (25%)</li><li>Almonds (20%)</li><li>Sesame Seeds (10%)</li><li>Coconut (8%)</li><li>Dry Ginger (Sonth) & Cardamom (7%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Warming flavour profile suited to cooler months</li><li>Dates and nuts contribute natural energy and fats</li><li>Sesame contributes minerals including calcium</li><li>A seasonal snack best enjoyed as part of a balanced diet</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Bite (30g)</td>
+          <td><strong>145 kcal</strong></td>
+          <td>3.8g</td>
+          <td>8.2g</td>
+          <td>3g</td>
+          <td>Natural Dates (No Refined Sugar)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹480 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 350g (Box of 10-12 bites) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Store in a cool dry place in an airtight container. Best consumed within 3 weeks.<br/>
+      <strong>Allergen Notice:</strong> Contains tree nuts (walnuts, almonds) and sesame seeds.
+    </div>
+  </div>
+</div>
+
+<div class="product-box">
+  <div class="product-header">
+    <div class="product-title">11. Summer Special — Coconut, Mint & Lime Nutrition Bite</div>
+    <div class="product-hindi">ग्रीष्मकालीन विशेष — नारियल, पुदीना और नींबू पोषण बाइट • Seasonal Nutrition Bites</div>
+  </div>
+  <div class="product-body">
+    <div class="tagline-pill">Fresh Summer Flavour • Coconut, Dates, Almonds & Lime</div>
+    <p style="margin: 0 0 10px 0; color: #3A3026;">A bright, tropical-inspired bite made with dates, coconut, almonds, cashews, a little lime zest, and optional dried mint. Its fresh flavour profile is designed for summer enjoyment. Pair with adequate water and a varied diet.</p>
+    
+    <div class="section-heading">Key Wholesome Ingredients:</div>
+    <ul>
+      <li>Dates (30%)</li><li>Coconut (25%)</li><li>Almonds (20%)</li><li>Cashews (15%)</li><li>Lime Zest (5%)</li><li>Dried Mint (optional, 5%)</li>
+    </ul>
+    
+    <div class="section-heading">Key Health &amp; Mindful Benefits:</div>
+    <ul>
+      <li>Light, fresh flavour profile suited to warmer months</li><li>Coconut and nuts contribute natural fats and energy</li><li>Lime zest adds a bright, refreshing taste</li><li>A seasonal snack best enjoyed as part of a varied, balanced diet</li>
+    </ul>
+    
+    <div class="section-heading">Approximate Nutritional Value (Per Serving):</div>
+    <table class="nutri-table">
+      <thead>
+        <tr>
+          <th>Serving Size</th>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Healthy Fats</th>
+          <th>Dietary Fiber</th>
+          <th>Sweetener Source</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 Bite (30g)</td>
+          <td><strong>138 kcal</strong></td>
+          <td>3.2g</td>
+          <td>7.5g</td>
+          <td>2.8g</td>
+          <td>Natural Dates (No Refined Sugar)</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="pricing-bar">
+      Price: ₹480 &nbsp;&nbsp;|&nbsp;&nbsp; Packaging: 350g (Box of 10-12 bites) &nbsp;&nbsp;|&nbsp;&nbsp; Production: Available in Fresh Kitchen Batches
+    </div>
+    
+    <div style="font-size: 9pt; color: #6B5A47; margin-top: 8px;">
+      <strong>Storage:</strong> Refrigerate during summer months. Consume within 2 weeks.<br/>
+      <strong>Allergen Notice:</strong> Contains tree nuts (almonds, cashews) and coconut. Optional mint ingredient disclosed.
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <p><strong>Dr. KAS'S Homemade Laddu Collection • KAS Nourish &amp; Nurture Foods</strong><br/>
+  Nourishing Every Generation, Naturally • Wholesome Goodness • Mindful Nutrition • A Taste of Well-being<br/>
+  Founder: Dr. Khan Afroz Shams (Ph.D. Organizational Psychology, Certified Nutritional Counsellor)<br/>
+  Website: www.drkas.com • Handcrafted in New Delhi, India</p>
+</div>
+
+</body>
+</html>
